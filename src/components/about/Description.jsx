@@ -21,7 +21,7 @@ const Introduction = styled.h1`
 
 const PreInto = styled.span`
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 600;
   color: var(--color-grey-600);
 `;
 
@@ -31,7 +31,6 @@ const Name = styled.span`
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 1.2;
-  font-family: "Inter", sans-serif;
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(#60a5fa, #3b82f6);
   background-clip: text;

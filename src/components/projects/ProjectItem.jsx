@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fadeFromLeft } from "../../Animations";
+import { absoluteFull, backgroundCenter } from "../../Mixins";
 
 const Container = styled.li`
   position: relative;
@@ -7,19 +8,13 @@ const Container = styled.li`
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-default);
   background-image: ${(props) => `url("${props.$cover}")`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  ${backgroundCenter}
   transition: all 0.3s ease-in;
   overflow: hidden;
 
   &::before {
     content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    ${absoluteFull}
     background-image: linear-gradient(
       180deg,
       rgba(31, 41, 55, 0.3) 0%,
@@ -32,11 +27,7 @@ const Container = styled.li`
 
   &::after {
     content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    ${absoluteFull}
     background-image: linear-gradient(
       180deg,
       rgba(31, 41, 55, 0.7) 0%,
@@ -48,7 +39,8 @@ const Container = styled.li`
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-within {
     &::before {
       opacity: 0;
     }
@@ -146,8 +138,12 @@ function ProjectItem({ project }) {
           ))}
         </ProjectRow>
         <ProjectRow as="nav">
-          <ProjectLink>Live Preview</ProjectLink>
-          <ProjectLink>Check Details</ProjectLink>
+          <ProjectLink href={project?.url || "#"} target="_blank">
+            Live Preview
+          </ProjectLink>
+          <ProjectLink href="https://gamespacelib.netlify.app/" target="_blank">
+            Check Details
+          </ProjectLink>
         </ProjectRow>
       </ProjectBox>
     </Container>

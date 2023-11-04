@@ -5,7 +5,7 @@ const DarkModeToggle = styled.button`
   position: relative;
   width: 8.4rem;
   aspect-ratio: 2/1;
-  border-radius: 34px;
+  border-radius: var(--border-radius-default);
   border: 3px solid
     ${(props) =>
       props.checked ? "var(--color-night-border)" : "var(--color-day-border)"};

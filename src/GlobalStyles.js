@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
     --color-moon-background: #FFFDF1;
     --color-moon-border: #E1E4C5;
     --border-radius-default: 30px;
+    --letter-spacing-default: 0.3px;
 }
 
 *:where(

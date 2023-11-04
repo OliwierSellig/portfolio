@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tile } from "../../Mixins";
+import { backgroundCenter, tile } from "../../Mixins";
 
 const StyledCover = styled.div`
   position: relative;
@@ -7,9 +7,7 @@ const StyledCover = styled.div`
   ${tile}
   aspect-ratio: 1/1;
   background-image: url("/img/my-photo.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  ${backgroundCenter}
   overflow: hidden;
 
   &:hover,

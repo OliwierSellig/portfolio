@@ -10,7 +10,7 @@ const HeadingContainer = styled.div`
 
 const Heading = styled.h2`
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: var(--letter-spacing-default);
   font-size: 2rem;
   padding: 8px 3.2rem;
   ${tile}

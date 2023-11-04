@@ -1,10 +1,9 @@
 import styled from "styled-components";
+import { absoluteFull, flexCenter } from "../../Mixins";
 
 const Item = styled.li`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
   width: 100%;
   padding: 1.2rem 2.4rem;
 
@@ -22,19 +21,12 @@ const Item = styled.li`
 `;
 
 const NameBox = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
+  ${absoluteFull}
   color: var(--color-grey-50);
   border-radius: var(--border-radius-default);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
   font-size: 2.2rem;
-  letter-spacing: 0.3px;
+  letter-spacing: var(--letter-spacing-default);
   font-weight: 500;
   opacity: 0;
   transition: all 0.3s;

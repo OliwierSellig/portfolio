@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { flexCenter } from "../../Mixins";
 
 const StyledNavigation = styled.nav`
   position: relative;
   display: flex;
   align-items: center;
-  border: 30px;
   padding: 4px;
-  border-radius: 30px;
+  border-radius: var(--border-radius-default);
   background-color: var(--color-grey-300);
 
   &::before {
@@ -15,7 +15,7 @@ const StyledNavigation = styled.nav`
     content: "";
     top: 8%;
     left: 5px;
-    border-radius: 30px;
+    border-radius: var(--border-radius-default);
     width: 14rem;
     height: 84%;
     background-color: var(--color-grey-50);
@@ -32,14 +32,12 @@ const StyledNavigation = styled.nav`
 
 const HeaderLink = styled.a`
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: var(--letter-spacing-default);
   cursor: pointer;
-  display: flex;
+  ${flexCenter}
   width: 14rem;
   height: 4.2rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
+  border-radius: var(--border-radius-default);
   transition: background-color 0.4s;
   z-index: 10;
   user-select: none;
