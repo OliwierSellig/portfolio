@@ -11,12 +11,30 @@ const StyledDescription = styled.div`
   align-items: start;
   justify-content: center;
   padding: 3.6rem;
+
+  @media only screen and (max-width: 830px) {
+    padding: 2.4rem;
+  }
+
+  @media only screen and (max-width: 792px) {
+    grid-column: 1/-1;
+    aspect-ratio: auto;
+    padding: 4.2rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 3.6rem 2.4rem;
+  }
 `;
 
 const Introduction = styled.h1`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.4rem;
+
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const PreInto = styled.span`
@@ -36,11 +54,15 @@ const Name = styled.span`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 5.8rem;
+  }
 `;
 
 const AboutText = styled.p`
   font-size: 1.8rem;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 2.4rem;
 `;
 
@@ -95,7 +117,7 @@ function Description() {
         and reach out to connect!
       </AboutText>
       <FindMeLink href="/" to="contact" smooth={true} offset={0} duration={500}>
-        Find me!
+        Hire me!
       </FindMeLink>
     </StyledDescription>
   );

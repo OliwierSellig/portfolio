@@ -21,6 +21,11 @@ const StyledContactItem = styled.li`
   & img {
     width: 8rem;
     height: 8rem;
+
+    @media only screen and (max-width: 340px) {
+      width: 6rem;
+      height: 6rem;
+    }
   }
 
   &:hover,
@@ -62,7 +67,7 @@ const ContactLink = styled.a`
     content: "";
     position: absolute;
     width: 100%;
-    height: 3px;
+    height: 2.4px;
     border-radius: 8px;
     background-color: #f9fafb;
     bottom: 0;
@@ -70,6 +75,10 @@ const ContactLink = styled.a`
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
+
+    @media only screen and (max-width: 720px) {
+      height: 2px;
+    }
   }
 
   &:hover,

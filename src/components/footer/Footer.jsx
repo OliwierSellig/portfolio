@@ -10,6 +10,11 @@ const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 380px) {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 `;
 
 const FooterCopy = styled.p`

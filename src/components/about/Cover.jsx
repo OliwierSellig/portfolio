@@ -20,6 +20,15 @@ const StyledCover = styled.div`
       transform: none;
     }
   }
+
+  @media only screen and (max-width: 792px) {
+    grid-column: 1/-1;
+    aspect-ratio: 5/3;
+  }
+
+  @media only screen and (max-width: 500px) {
+    aspect-ratio: 4/3;
+  }
 `;
 
 const Hider = styled.div`

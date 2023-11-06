@@ -45,3 +45,15 @@ export const fadeFromBottom = keyframes`
     opacity: 1;
 }
 `;
+
+export const expandFromTop = keyframes`
+0% {
+    max-height: 0;
+    opacity: 0;
+}
+
+100% {
+    max-height: auto;
+    opacity: 1;
+}
+`;

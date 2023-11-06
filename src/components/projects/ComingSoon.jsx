@@ -59,6 +59,10 @@ const Container = styled.li`
       filter: blur(3px);
     }
   }
+
+  @media only screen and (max-width: 720px) {
+    grid-column: 1/-1;
+  }
 `;
 
 function ComingSoon() {

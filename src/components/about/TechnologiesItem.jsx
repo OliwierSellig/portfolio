@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../Mixins";
-import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const Item = styled.li`
   position: relative;
@@ -17,6 +16,24 @@ const Item = styled.li`
   &:focus {
     & div {
       opacity: 1;
+    }
+  }
+
+  @media only screen and (max-width: 460px) {
+    padding: 1.2rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    & img {
+      width: 7.6rem;
+      height: 7.6rem;
+    }
+  }
+
+  @media only screen and (max-width: 340px) {
+    & img {
+      width: 7.2rem;
+      height: 7.2rem;
     }
   }
 `;

@@ -19,6 +19,10 @@ const StyledTechnologiesList = styled.ul`
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 function TechnologiesList() {

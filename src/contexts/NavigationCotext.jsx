@@ -5,14 +5,18 @@ const NavigationContext = createContext();
 
 function NavigationProvider({ children }) {
   const { ref: aboutRef, inView: aboutView } = useInView({
-    rootMargin: "-500px",
+    threshold: 0.6,
   });
-  const { ref: projectsRef, inView: projectsView } = useInView();
+  const { ref: projectsRef, inView: projectsView } = useInView({
+    threshold: 0.4,
+  });
   const { ref: contactRef, inView: contactView } = useInView({
-    rootMargin: "-250px",
+    threshold: 0.4,
   });
 
   const [active, setActive] = useState(0);
+
+  console.log(aboutView, projectsView, contactView);
 
   useEffect(() => {
     if (aboutView) setActive(0);

@@ -51,6 +51,22 @@ const Container = styled.li`
     & div {
       bottom: 15%;
 
+      @media only screen and (max-width: 1024px) {
+        bottom: 10%;
+      }
+
+      @media only screen and (max-width: 768px) {
+        bottom: 5%;
+      }
+
+      @media only screen and (max-width: 720px) {
+        bottom: 20%;
+      }
+
+      @media only screen and (max-width: 380px) {
+        bottom: 10%;
+      }
+
       & h3 {
         border-bottom: 2px solid #9ca3af;
       }
@@ -68,6 +84,10 @@ const Container = styled.li`
       }
     }
   }
+
+  @media only screen and (max-width: 720px) {
+    grid-column: 1/-1;
+  }
 `;
 
 const ProjectBox = styled.div`
@@ -83,6 +103,18 @@ const ProjectBox = styled.div`
   padding: 2.4rem;
   transition: all 0.4s;
   z-index: 40;
+
+  @media only screen and (max-width: 768px) {
+    bottom: -40%;
+  }
+
+  @media only screen and (max-width: 720px) {
+    bottom: -20%;
+  }
+
+  @media only screen and (max-width: 380px) {
+    bottom: -30%;
+  }
 `;
 
 const ProjectTitle = styled.h3`

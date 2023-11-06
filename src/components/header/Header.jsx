@@ -13,7 +13,13 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   z-index: 500;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   transition: all 0.2s;
+
+  @media only screen and (max-width: 360px) {
+    padding: 8px 2.4rem;
+  }
 `;
 
 function Header() {
