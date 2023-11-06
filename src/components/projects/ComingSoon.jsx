@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { absoluteFull, backgroundCenter, flexCenter } from "../../Mixins";
+import {
+  absoluteFull,
+  backgroundCenter,
+  flexCenter,
+} from "../../styles/Mixins";
 
 const Container = styled.li`
   position: relative;

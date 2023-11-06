@@ -1,4 +1,4 @@
-import GlobalStyles from "./GlobalStyles";
+import GlobalStyles from "./styles/GlobalStyles";
 import Header from "./components/header/Header";
 import Container from "./components/global/Container";
 

@@ -15,8 +15,17 @@ function NavigationProvider({ children }) {
   });
 
   const [active, setActive] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  console.log(aboutView, projectsView, contactView);
+  useEffect(() => {
+    function hideNav() {
+      setMobileMenuOpen(false);
+    }
+
+    document.addEventListener("scroll", hideNav);
+
+    return document.removeEventListener("scroll", hideNav);
+  }, []);
 
   useEffect(() => {
     if (aboutView) setActive(0);
@@ -35,6 +44,8 @@ function NavigationProvider({ children }) {
         contactView,
         active,
         setActive,
+        mobileMenuOpen,
+        setMobileMenuOpen,
       }}
     >
       {children}

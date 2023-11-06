@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { backgroundCenter, tile } from "../../Mixins";
+import { backgroundCenter, tile } from "../../styles/Mixins";
 
 const StyledCover = styled.div`
   position: relative;

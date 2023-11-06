@@ -1,6 +1,6 @@
 import CopyToClipboard from "react-copy-to-clipboard";
 import styled from "styled-components";
-import { backgroundCenter } from "../../Mixins";
+import { backgroundCenter } from "../../styles/Mixins";
 import { useEffect, useState } from "react";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 

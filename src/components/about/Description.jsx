@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tile } from "../../Mixins";
+import { tile } from "../../styles/Mixins";
 import { Link } from "react-scroll";
 
 const StyledDescription = styled.div`

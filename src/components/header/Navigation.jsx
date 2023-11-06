@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
-import { flexCenter } from "../../Mixins";
+import { flexCenter } from "../../styles/Mixins";
 import { Link } from "react-scroll";
 import { useNavigation } from "../../contexts/NavigationCotext";
 import { useEffect, useState } from "react";
-import { fadeIn } from "../../Animations";
+import { fadeIn } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const StyledNavigation = styled.nav`
@@ -115,19 +115,9 @@ const MobileMenuButton = styled.button`
 `;
 
 function Navigation() {
-  const { active, setActive } = useNavigation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { inDarkMode } = useDarkMode();
-
-  useEffect(() => {
-    function hideNav() {
-      setMobileMenuOpen(false);
-    }
-
-    document.addEventListener("scroll", hideNav);
-
-    return document.removeEventListener("scroll", hideNav);
-  }, []);
+  const { active, setActive, mobileMenuOpen, setMobileMenuOpen } =
+    useNavigation();
 
   return (
     <>

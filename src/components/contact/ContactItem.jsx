@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { absoluteFull, flexCenter } from "../../Mixins";
-import { fadeFromBottom } from "../../Animations";
+import { absoluteFull, flexCenter } from "../../styles/Mixins";
+import { fadeFromBottom } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const StyledContactItem = styled.li`

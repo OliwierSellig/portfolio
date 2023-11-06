@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { absoluteFull, flexCenter } from "../../Mixins";
+import { absoluteFull, flexCenter } from "../../styles/Mixins";
 
 const Item = styled.li`
   position: relative;

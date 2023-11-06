@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { fadeFromLeft } from "../../Animations";
-import { absoluteFull, backgroundCenter } from "../../Mixins";
+import { fadeFromLeft } from "../../styles/Animations";
+import { absoluteFull, backgroundCenter } from "../../styles/Mixins";
 
 const Container = styled.li`
   position: relative;

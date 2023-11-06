@@ -1,16 +1,7 @@
 import styled from "styled-components";
 import TechnologiesItem from "./TechnologiesItem";
-import { tile } from "../../Mixins";
-
-const technologies = [
-  { icon: "/svg/html.svg", name: "HTML" },
-  { icon: "/svg/css.svg", name: "CSS" },
-  { icon: "/svg/js.svg", name: "JavaScript" },
-  { icon: "/svg/react.svg", name: "React" },
-  { icon: "/svg/sass.svg", name: "Sass" },
-  { icon: "/svg/git.svg", name: "Git" },
-  { icon: "/svg/github.svg", name: "GitHub" },
-];
+import { tile } from "../../styles/Mixins";
+import { technologyList } from "../../utils";
 
 const StyledTechnologiesList = styled.ul`
   ${tile}
@@ -28,7 +19,7 @@ const StyledTechnologiesList = styled.ul`
 function TechnologiesList() {
   return (
     <StyledTechnologiesList>
-      {technologies.map((tech, i) => (
+      {technologyList.map((tech, i) => (
         <TechnologiesItem key={i} item={tech} />
       ))}
     </StyledTechnologiesList>
