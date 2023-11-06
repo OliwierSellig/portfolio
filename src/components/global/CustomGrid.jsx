@@ -15,6 +15,8 @@ function CustomGrid({
   rowGap = 1.8,
   columnGap = 1.8,
   children,
+  id = "",
+  navigationRef = null,
 }) {
   return (
     <Grid
@@ -22,6 +24,8 @@ function CustomGrid({
       $marginbottom={marginBottom}
       $rowgap={rowGap}
       $columngap={columnGap}
+      id={id}
+      ref={navigationRef}
     >
       {children}
     </Grid>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../Mixins";
 import { fadeFromBottom } from "../../Animations";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const StyledContactItem = styled.li`
   position: relative;
@@ -12,6 +13,10 @@ const StyledContactItem = styled.li`
   overflow: hidden;
   transition: all 0.3s;
   z-index: 10;
+  box-shadow: ${(props) =>
+    props.$darkMode
+      ? "0rem 1rem 2.4rem 1.4rem rgba(18, 18, 18, 0.2);"
+      : "none"};
 
   & img {
     width: 8rem;
@@ -49,7 +54,7 @@ const ContactLink = styled.a`
   font-size: 2.4rem;
   font-weight: 500;
   letter-spacing: var(--letter-spacing-default);
-  color: var(--color-grey-50);
+  color: #f9fafb;
   transition: all 0.3s;
   position: relative;
 
@@ -59,7 +64,7 @@ const ContactLink = styled.a`
     width: 100%;
     height: 3px;
     border-radius: 8px;
-    background-color: var(--color-grey-50);
+    background-color: #f9fafb;
     bottom: 0;
     left: 0;
     transform-origin: right;
@@ -77,12 +82,20 @@ const ContactLink = styled.a`
 `;
 
 function ContactItem({ option }) {
+  const { inDarkMode } = useDarkMode();
+
   return (
-    <StyledContactItem tabIndex={0} $theme={option?.theme || "#fff"}>
+    <StyledContactItem
+      $darkMode={inDarkMode}
+      tabIndex={0}
+      $theme={option?.theme || "#fff"}
+    >
       <img src={option?.cover} alt={option?.name || "Contact Option"} />
       <Container>
         <div>
-          <ContactLink href={option?.url || "#"}>{option?.name}</ContactLink>
+          <ContactLink href={option?.url || "#"} target="_blank">
+            {option?.name}
+          </ContactLink>
         </div>
       </Container>
     </StyledContactItem>

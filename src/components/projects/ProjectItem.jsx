@@ -52,7 +52,7 @@ const Container = styled.li`
       bottom: 15%;
 
       & h3 {
-        border-bottom: 2px solid var(--color-grey-400);
+        border-bottom: 2px solid #9ca3af;
       }
 
       & ul {
@@ -86,13 +86,13 @@ const ProjectBox = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  color: var(--color-grey-50);
+  color: var(--color-text-white);
   font-size: 3.2rem;
   letter-spacing: 0.3px;
   font-weight: 500;
   font-family: "Ubuntu", sans-serif;
   padding-bottom: 2px;
-  border-bottom: 2px solid var(--color-grey-600);
+  border-bottom: 2px solid #4b5563;
   margin-bottom: 1.2rem;
   transition: all 0.3s;
 `;
@@ -114,13 +114,13 @@ const TechItem = styled.li`
 const ProjectLink = styled.a`
   font-size: 2rem;
   font-weight: 500;
-  color: var(--color-grey-50);
+  color: var(--color-text-white);
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover,
   &:focus {
-    color: var(--color-grey-400);
+    color: #9ca3af;
     transform: scale(1.05);
   }
 `;

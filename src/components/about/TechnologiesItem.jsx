@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../Mixins";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const Item = styled.li`
   position: relative;
@@ -22,7 +23,7 @@ const Item = styled.li`
 
 const NameBox = styled.div`
   ${absoluteFull}
-  color: var(--color-grey-50);
+  color: var(--color-text-white);
   border-radius: var(--border-radius-default);
   ${flexCenter}
   font-size: 2.2rem;
@@ -32,11 +33,7 @@ const NameBox = styled.div`
   transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
-  background-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(249, 250, 251, 0.9) 100%
-  );
+  background-image: var(--technology-background);
 `;
 
 function TechnologiesItem({ item }) {

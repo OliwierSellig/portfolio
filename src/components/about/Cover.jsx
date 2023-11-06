@@ -45,7 +45,7 @@ const Me = styled.p`
   font-size: 2.6rem;
   font-weight: 500;
   font-family: "Playpen Sans", cursive;
-  color: var(--color-grey-50);
+  color: #f9fafb;
   transform: translateY(150%);
   transition: all 0.3s;
 `;

@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
 :root{
+
+  & {
     --color-grey-50: #f9fafb;
     --color-grey-100: #f3f4f6;
     --color-grey-200: #e5e7eb;
@@ -14,6 +16,44 @@ const GlobalStyles = createGlobalStyle`
     --color-grey-800: #1f2937;
     --color-grey-900: #111827;
     --color-grey-950: #030712;
+
+    --color-background: #f9fafb;
+    --color-text-white: #f9fafb;
+    --color-text-white-shade-1: #9ca3af;
+    --color-nav-active: #f9fafb;
+    --navigation-hover-color: rgba(249, 250, 251, 0.6);
+    --technology-background: radial-gradient(circle,rgba(0, 0, 0, 0.7) 0%,rgba(249, 250, 251, 0.7) 100%);
+
+    --image-grayscale: 0;
+  --image-opacity: 100%;
+  
+  }
+
+  &.dark-mode{
+    --color-grey-50: #09090b;
+    --color-grey-100: #18181b;
+    --color-grey-200: #27272a;
+    --color-grey-300: #3f3f46;
+    --color-grey-400: #52525b;
+    --color-grey-500: #71717a;
+    --color-grey-600: #a1a1aa;
+    --color-grey-700: #d4d4d8;
+    --color-grey-800: #e4e4e7;
+    --color-grey-900: #f4f4f5;
+    --color-grey-950: #fafafa;
+
+    --color-background: #3f3f46;
+    --color-text-white: #fafafa;
+    --color-text-white-shade-1: #a1a1aa;
+    --color-nav-active: #52525b;
+    --navigation-hover-color: rgba(113, 113, 122, 0.4);
+    --technology-background: radial-gradient(circle,rgba(0, 0, 0, 0.5) 00%, rgba(249, 250, 251, 0.5) 100%);
+
+    --image-grayscale: 10%;
+--image-opacity: 90%;
+  
+  }
+   
     --color-blue-300: #93c5fd;
     --color-blue-400: #60a5fa;
     --color-blue-500: #3b82f6;
@@ -40,6 +80,7 @@ const GlobalStyles = createGlobalStyle`
 *::before,
 *::after {
   box-sizing: border-box;
+  transition:  background-color 0.3s
 }
 
 canvas {
@@ -72,6 +113,7 @@ body{
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
     color: var(--color-grey-700);
+    
 }
 
 a,

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const DarkModeToggle = styled.button`
   position: relative;
@@ -14,7 +15,8 @@ const DarkModeToggle = styled.button`
       ? "var(--color-night-background)"
       : "var(--color-day-background)"};
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 300;
 
   &:hover,
   &:focus {
@@ -48,12 +50,12 @@ const DarkModeToggle = styled.button`
 `;
 
 function DarkMode() {
-  const [checked, setChecked] = useState(false);
+  const { inDarkMode, setInDarkMode } = useDarkMode();
 
   return (
     <DarkModeToggle
-      checked={checked}
-      onClick={() => setChecked((prev) => !prev)}
+      checked={inDarkMode}
+      onClick={() => setInDarkMode((prev) => !prev)}
     />
   );
 }

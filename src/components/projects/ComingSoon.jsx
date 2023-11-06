@@ -13,7 +13,7 @@ const Container = styled.li`
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   font-size: 3rem;
-  color: var(--color-grey-50);
+  color: var(--color-text-white);
   letter-spacing: var(--letter-spacing-default);
   background: transparent;
 
