@@ -29,8 +29,6 @@ function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  console.log(location.pathname);
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;

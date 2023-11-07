@@ -1,6 +1,12 @@
 import styled from "styled-components";
-import { backgroundCenter, tile } from "../../styles/Mixins";
+import { absoluteFull, backgroundCenter, tile } from "../../styles/Mixins";
 import { useState } from "react";
+import Modal from "../global/Modal";
+import ScreenshotFull from "./ScreenshotFull";
+import DotContainer from "./DotContainer";
+import NavButton from "./NavButton";
+import Carousel from "./Carousel";
+import { useScreenshots } from "../../contexts/ScreenshotsContext";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -8,47 +14,122 @@ const StyledContainer = styled.div`
   aspect-ratio: 16/9;
   ${backgroundCenter}
   cursor: pointer;
-  overflow: hidden;
-`;
+  overflow: clip;
+  z-index: 50;
 
-const NavButton = styled.button`
-  position: absolute;
-`;
+  & > button:first-of-type {
+    transform: translate(-100%, -50%);
+  }
 
-const Carousel = styled.ul``;
+  & > button:nth-of-type(2) {
+    transform: translate(0%, -50%);
+  }
 
-const CarouselItem = styled.li`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  transform: ${(props) => `translateX(${props?.$pos * 100}%)`};
+  &:hover,
+  &:focus,
+  &:focus-within {
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+
+    & nav {
+      transform: translate(-50%, -250%);
+    }
+
+    & > button:first-of-type {
+      transform: translate(0, -50%);
+    }
+
+    & > button:nth-of-type(2) {
+      transform: translate(-100%, -50%);
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    ${absoluteFull}
+    z-index: 100;
+    transition: opacity 0.3s;
+  }
+
+  &::before {
+    background-image: linear-gradient(
+      0deg,
+      rgba(63, 63, 70, 0.2) 0%,
+      rgba(63, 63, 70, 0.2) 100%
+    );
+    opacity: 1;
+  }
+
+  &::after {
+    background-image: linear-gradient(
+      0deg,
+      rgba(63, 63, 70, 0.4) 0%,
+      rgba(63, 63, 70, 0.2) 100%
+    );
+    opacity: 0;
+  }
 `;
 
 function ProjectGallery() {
-  const [iterator, setIterator] = useState(0);
+  const screenshoots = [
+    { url: "/img/wbs.png", name: "GameSpace" },
+    { url: "/img/charlies-full.png", name: "Charlie's" },
+    { url: "/img/portfolio.png", name: "Portfolio" },
+    { url: "/img/deermood.png", name: "Deermood" },
+  ];
+
+  const { iterator, setIterator, canGoPrev, goPrev, canGoNext, goNext } =
+    useScreenshots();
 
   return (
-    <StyledContainer>
-      <NavButton />
-      <Carousel>
-        <CarouselItem $pos={0 - iterator}>
-          <img src="/img/wbs.png" alt="GameSpace" />
-        </CarouselItem>
-        <CarouselItem $pos={1 - iterator}>
-          <img src="/img/charlies.png" alt="Charlie's" />
-        </CarouselItem>
-        <CarouselItem $pos={2 - iterator}>
-          <img src="/img/portfolio.png" alt="Portfolio" />
-        </CarouselItem>
-        <CarouselItem $pos={3 - iterator}>
-          <img src="/img/deermood.png" alt="Deermood" />
-        </CarouselItem>
-      </Carousel>
-      <NavButton />
-    </StyledContainer>
+    <Modal>
+      <Modal.Open opens="screenshot">
+        <StyledContainer>
+          <Carousel
+            list={screenshoots}
+            source="url"
+            alt="name"
+            iterator={iterator}
+          />
+          <NavButton
+            prev={true}
+            active={canGoPrev}
+            handleClick={goPrev}
+            top={50}
+            left={0}
+            translateX={0}
+            translateY={-50}
+          />
+          <NavButton
+            prev={false}
+            active={canGoNext}
+            handleClick={() => goNext(screenshoots)}
+            top={50}
+            left={100}
+            translateX={-100}
+            translateY={-50}
+          />
+          <DotContainer
+            list={screenshoots}
+            iterator={iterator}
+            setIterator={setIterator}
+            top={100}
+            left={50}
+            translateX={-50}
+            translateY={0}
+          />
+        </StyledContainer>
+      </Modal.Open>
+      <Modal.Window name="screenshot">
+        <ScreenshotFull list={screenshoots} />
+      </Modal.Window>
+    </Modal>
   );
 }
 
