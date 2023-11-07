@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { fadeFromLeft } from "../../styles/Animations";
 import { absoluteFull, backgroundCenter } from "../../styles/Mixins";
+import { Link } from "react-router-dom";
 
 const Container = styled.li`
   position: relative;
@@ -143,7 +144,7 @@ const TechItem = styled.li`
   height: 3.8rem;
 `;
 
-const ProjectLink = styled.a`
+const ProjectLink = styled(Link)`
   font-size: 2rem;
   font-weight: 500;
   color: var(--color-text-white);
@@ -170,10 +171,10 @@ function ProjectItem({ project }) {
           ))}
         </ProjectRow>
         <ProjectRow as="nav">
-          <ProjectLink href={project?.url || "#"} target="_blank">
+          <ProjectLink as="a" href={project?.url || "#"} target="_blank">
             Live Preview
           </ProjectLink>
-          <ProjectLink href="https://gamespacelib.netlify.app/" target="_blank">
+          <ProjectLink as={Link} to={project?.slug}>
             Check Details
           </ProjectLink>
         </ProjectRow>

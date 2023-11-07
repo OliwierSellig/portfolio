@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --color-grey-100: #f3f4f6;
     --color-grey-200: #e5e7eb;
     --color-grey-300: #d1d5db;
+    --color-grey-350: #bcc0c5;
     --color-grey-400: #9ca3af;
     --color-grey-500: #6b7280;
     --color-grey-600: #4b5563;
@@ -23,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
     --color-nav-active: #f9fafb;
     --navigation-hover-color: rgba(249, 250, 251, 0.6);
     --technology-background: radial-gradient(circle,rgba(0, 0, 0, 0.7) 0%,rgba(249, 250, 251, 0.7) 100%);
+    --back-button-shadow: rgba(209, 213, 219, 0.2);
 
     --image-grayscale: 0;
   --image-opacity: 100%;
@@ -34,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
     --color-grey-100: #18181b;
     --color-grey-200: #27272a;
     --color-grey-300: #3f3f46;
+    --color-grey-350: #525259;
     --color-grey-400: #52525b;
     --color-grey-500: #71717a;
     --color-grey-600: #a1a1aa;
@@ -48,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
     --color-nav-active: #52525b;
     --navigation-hover-color: rgba(113, 113, 122, 0.4);
     --technology-background: radial-gradient(circle,rgba(0, 0, 0, 0.5) 00%, rgba(249, 250, 251, 0.5) 100%);
+    --back-button-shadow: rgba(63, 63, 70, 0.2);
 
     --image-grayscale: 10%;
 --image-opacity: 90%;

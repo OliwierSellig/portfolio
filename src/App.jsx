@@ -1,26 +1,27 @@
 import GlobalStyles from "./styles/GlobalStyles";
-import Header from "./components/header/Header";
-import Container from "./components/global/Container";
+import AppLayout from "./components/global/AppLayout";
 
-import About from "./components/about/About";
-import Projects from "./components/projects/Projects";
-import Contact from "./components/contact/Contact";
-import Footer from "./components/footer/Footer";
 import { NavigationProvider } from "./contexts/NavigationCotext";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "./pages/Main";
+import ProjectView from "./pages/ProjectView";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
     <DarkModeProvider>
       <NavigationProvider>
         <GlobalStyles />
-        <Container>
-          <Header />
-          <About />
-          <Projects />
-          <Contact />
-          <Footer />
-        </Container>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Main />} />
+              <Route path=":slug" element={<ProjectView />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
       </NavigationProvider>
     </DarkModeProvider>
   );

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import DarkMode from "./DarkMode";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import GoBackButton from "./GoBackButton";
 
 const StyledHeader = styled.header`
   position: ${(props) => (props.$sticky ? "fixed" : "absolute")};
@@ -23,8 +25,11 @@ const StyledHeader = styled.header`
 `;
 
 function Header() {
+  const location = useLocation();
   const [isSticky, setIsSticky] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  console.log(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +54,7 @@ function Header() {
   return (
     <StyledHeader $sticky={isSticky}>
       <DarkMode />
-      <Navigation />
+      {location.pathname === "/" ? <Navigation /> : <GoBackButton />}
     </StyledHeader>
   );
 }
