@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { useTechnologies } from "../../hooks/useTechnologies";
+import Loader from "../global/Loader";
+import { flexCenter } from "../../styles/Mixins";
+import { fadeIn } from "../../styles/Animations";
 
 const TechHeading = styled.p`
   font-size: 2rem;
@@ -15,6 +19,8 @@ const TechList = styled.ul`
 
 const TechItem = styled.li`
   position: relative;
+  height: 4rem;
+  animation: ${fadeIn} 0.6s;
 
   &::before {
     position: absolute;
@@ -46,23 +52,29 @@ const TechItem = styled.li`
   }
 `;
 
-function ProjectTech() {
+const StyledLoader = styled.div`
+  height: 4rem;
+  ${flexCenter}
+`;
+
+function ProjectTech({ techstack }) {
+  const { isLoading, technologies } = useTechnologies(techstack);
+
   return (
     <>
       <TechHeading>Techstack:</TechHeading>
       <TechList>
-        <TechItem tabIndex={0} $name={"HTML"}>
-          <img src="/svg/html.svg" alt="Tech" />
-        </TechItem>
-        <TechItem tabIndex={0} $name={"Sass"}>
-          <img src="/svg/sass.svg" alt="Tech" />
-        </TechItem>
-        <TechItem tabIndex={0} $name={"JavaScript"}>
-          <img src="/svg/js.svg" alt="Tech" />
-        </TechItem>
-        <TechItem tabIndex={0} $name={"React"}>
-          <img src="/svg/react.svg" alt="Tech" />
-        </TechItem>
+        {!isLoading && technologies.length > 0 ? (
+          technologies?.map((tech, i) => (
+            <TechItem tabIndex={0} $name={tech.name} key={i}>
+              <img src={tech.icon} alt={tech.name} />
+            </TechItem>
+          ))
+        ) : (
+          <StyledLoader>
+            <Loader size={6} />
+          </StyledLoader>
+        )}
       </TechList>
     </>
   );

@@ -1,13 +1,3 @@
-export const technologyList = [
-  { icon: "/svg/html.svg", name: "HTML" },
-  { icon: "/svg/css.svg", name: "CSS" },
-  { icon: "/svg/js.svg", name: "JavaScript" },
-  { icon: "/svg/react.svg", name: "React" },
-  { icon: "/svg/sass.svg", name: "Sass" },
-  { icon: "/svg/git.svg", name: "Git" },
-  { icon: "/svg/github.svg", name: "GitHub" },
-];
-
 export const contactOptions = [
   {
     name: "Linkedin",
@@ -32,36 +22,5 @@ export const contactOptions = [
     cover: "/svg/github-mark.svg",
     url: "https://github.com/OliwierSellig",
     theme: "#28282B",
-  },
-];
-
-export const projectsList = [
-  {
-    name: "Charlie's",
-    slug: "charlies",
-    cover: "/img/charlies.png",
-    stack: ["/svg/js.svg", "/svg/react.svg", "/svg/sass.svg"],
-    url: "https://charlies-chocolate.netlify.app/",
-  },
-  {
-    name: "GameSpace",
-    slug: "gamespace",
-    cover: "/img/wbs.png",
-    stack: ["/svg/js.svg", "/svg/react.svg", "/svg/sass.svg"],
-    url: "https://gamespacelib.netlify.app/",
-  },
-  {
-    name: "Portfolio",
-    slug: "portfolio",
-    cover: "/img/portfolio.png",
-    stack: ["/svg/js.svg", "/svg/react.svg", "/img/styled-components.png"],
-    url: "https://charlies-chocolate.netlify.app/",
-  },
-  {
-    name: "Deermood",
-    slug: "deermood",
-    cover: "/img/deermood.png",
-    stack: ["/svg/html.svg", "/svg/css.svg", "/svg/js.svg"],
-    url: "https://deermood.netlify.app/",
   },
 ];

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import { fadeIn } from "../../styles/Animations";
 
 const StyledBox = styled.div`
   ${tile}
   aspect-ratio: 4/3;
   padding: 3.6rem;
+  animation: ${fadeIn} 2s;
 `;
 
 const BoxHeading = styled.h3`
@@ -31,7 +33,7 @@ const BoxContent = styled.p`
   line-height: 1.5;
 `;
 
-function ProjectTextBox({ heading, type }) {
+function ProjectTextBox({ heading, type, children }) {
   const { inDarkMode } = useDarkMode();
 
   return (
@@ -45,16 +47,7 @@ function ProjectTextBox({ heading, type }) {
           alt="Heading Icon"
         />
       </BoxHeading>
-      <BoxContent>
-        My front-end portfolio exemplifies what a developer's portfolio should
-        encompass. It includes sections about me, the technologies I work with,
-        standout projects, and easy ways to get in touch. It's a clean,
-        minimalist, and aesthetically pleasing website. The portfolio consists
-        of a homepage and separate pages for each project. Each highlighted
-        project features links to the live site and its repository, along with
-        key details, a gallery, and an explanatory video. What more could you
-        ask for?
-      </BoxContent>
+      <BoxContent>{children}</BoxContent>
     </StyledBox>
   );
 }

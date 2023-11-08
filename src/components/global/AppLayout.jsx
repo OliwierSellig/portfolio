@@ -14,6 +14,7 @@ const StyledLayout = styled.div`
 
   & main {
     flex-grow: 1;
+    position: relative;
   }
 
   @media only screen and (max-width: 460px) {

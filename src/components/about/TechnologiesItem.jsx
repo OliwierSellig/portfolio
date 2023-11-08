@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
+import { fadeIn } from "../../styles/Animations";
 
 const Item = styled.li`
   position: relative;
   ${flexCenter}
   width: 100%;
   padding: 1.2rem 2.4rem;
+  animation: ${fadeIn} 0.6s;
 
   & img {
     width: 8rem;

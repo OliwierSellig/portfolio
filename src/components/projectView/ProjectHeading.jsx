@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import ProjectTech from "./ProjectTech";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledContainer = styled.header`
   ${tile};
@@ -9,6 +10,7 @@ const StyledContainer = styled.header`
   flex-direction: column;
   align-items: start;
   padding: 3.6rem 2.4rem;
+  animation: ${fadeHorizontal(-20, 0)} 1s;
 `;
 
 const Heading = styled.h2`
@@ -66,25 +68,17 @@ const ProjectLink = styled.a`
   }
 `;
 
-function ProjectHeading() {
+function ProjectHeading({ heading, techstack, liveUrl, repoUrl }) {
   return (
     <StyledContainer>
-      <Heading>GameSpace</Heading>
-      <ProjectTech />
+      <Heading>{heading}</Heading>
+      <ProjectTech techstack={techstack} />
       <Navigation>
-        <ProjectLink
-          $dest="live"
-          href="https://gamespacelib.netlify.app/"
-          target="_blank"
-        >
+        <ProjectLink $dest="live" href={liveUrl} target="_blank">
           <img src="/svg/globe.svg" alt="Globe" />
           <span>Live Server</span>
         </ProjectLink>
-        <ProjectLink
-          $dest="repo"
-          href="https://github.com/OliwierSellig/charlies"
-          target="_blank"
-        >
+        <ProjectLink $dest="repo" href={repoUrl} target="_blank">
           <img src="/svg/github-mark.svg" alt="Github" />
           <span>Repository</span>
         </ProjectLink>

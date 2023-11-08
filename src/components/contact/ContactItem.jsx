@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
-import { fadeFromBottom } from "../../styles/Animations";
+import { fadeVertical } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const StyledContactItem = styled.li`
@@ -36,7 +36,7 @@ const StyledContactItem = styled.li`
       visibility: visible;
 
       & div {
-        animation: ${fadeFromBottom} 0.5s;
+        animation: ${fadeVertical(60, 0)} 0.5s;
       }
     }
   }

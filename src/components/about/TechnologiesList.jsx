@@ -1,7 +1,18 @@
 import styled from "styled-components";
 import TechnologiesItem from "./TechnologiesItem";
 import { tile } from "../../styles/Mixins";
-import { technologyList } from "../../services/utils";
+import { useTechnologies } from "../../hooks/useTechnologies";
+import Loader from "../global/Loader";
+
+const LoaderContainer = styled.div`
+  ${tile}
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10.4rem;
+`;
 
 const StyledTechnologiesList = styled.ul`
   ${tile}
@@ -17,12 +28,31 @@ const StyledTechnologiesList = styled.ul`
 `;
 
 function TechnologiesList() {
+  const { isLoading, technologies } = useTechnologies([
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "sass",
+    "git",
+    "github",
+  ]);
+
   return (
-    <StyledTechnologiesList>
-      {technologyList.map((tech, i) => (
-        <TechnologiesItem key={i} item={tech} />
-      ))}
-    </StyledTechnologiesList>
+    <>
+      <StyledTechnologiesList>
+        {(isLoading || technologies.length < 1) && (
+          <LoaderContainer>
+            <Loader />
+          </LoaderContainer>
+        )}
+        {!isLoading &&
+          technologies.length > 0 &&
+          technologies.map((tech, i) => (
+            <TechnologiesItem key={i} item={tech} />
+          ))}
+      </StyledTechnologiesList>
+    </>
   );
 }
 

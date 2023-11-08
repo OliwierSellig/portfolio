@@ -2,8 +2,7 @@ import styled, { css } from "styled-components";
 import { flexCenter } from "../../styles/Mixins";
 import { Link } from "react-scroll";
 import { useNavigation } from "../../contexts/NavigationCotext";
-import { useEffect, useState } from "react";
-import { fadeIn } from "../../styles/Animations";
+import { fadeHorizontal, fadeIn } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const StyledNavigation = styled.nav`
@@ -15,6 +14,7 @@ const StyledNavigation = styled.nav`
   background-color: var(--color-grey-300);
   z-index: 300;
   overflow: hidden;
+  animation: ${fadeHorizontal(10, 0)} 1s;
 
   &::before {
     position: absolute;

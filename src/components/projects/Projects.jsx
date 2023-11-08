@@ -2,14 +2,9 @@ import CustomGrid from "../global/CustomGrid";
 import SectionHeading from "../global/SectionHeading";
 import ProjectList from "./ProjectList";
 import { useNavigation } from "../../contexts/NavigationCotext";
-import { useProjects } from "../hooks/useProjects";
-import { useTechnologies } from "../hooks/useTechnologies";
 
 function Projects() {
   const { projectsRef } = useNavigation();
-  const { projects } = useProjects();
-  const { technologies } = useTechnologies(["css", "html"]);
-  console.log(technologies);
 
   return (
     <CustomGrid

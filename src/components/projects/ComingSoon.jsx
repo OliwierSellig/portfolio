@@ -4,6 +4,7 @@ import {
   backgroundCenter,
   flexCenter,
 } from "../../styles/Mixins";
+import ProjectLoader from "./ProjectLoader";
 
 const Container = styled.li`
   position: relative;
@@ -69,8 +70,12 @@ const Container = styled.li`
   }
 `;
 
-function ComingSoon() {
-  return <Container tabIndex={0}>Coming Soon</Container>;
+function ComingSoon({ isLoading, list = [] }) {
+  return isLoading && list?.length < 1 ? (
+    <ProjectLoader />
+  ) : (
+    <Container tabIndex={0}>Coming Soon</Container>
+  );
 }
 
 export default ComingSoon;

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTechnologies } from "../../services/apiTechnologies";
+import { getTechnologies } from "../services/apiTechnologies";
 
 export function useTechnologies(techList) {
   const list = techList || [];

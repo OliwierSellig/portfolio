@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledButton = styled(Link)`
   position: relative;
@@ -17,6 +18,7 @@ const StyledButton = styled(Link)`
   cursor: pointer;
   box-shadow: var(--back-button-shadow);
   overflow: hidden;
+  animation: ${fadeHorizontal(10, 0)} 1s;
 
   &,
   & * {

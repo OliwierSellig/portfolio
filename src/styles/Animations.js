@@ -10,50 +10,26 @@ export const fadeIn = keyframes`
 }
 `;
 
-export const fadeFromTop = keyframes`
+export const fadeVertical = (start = -10, end = 0) => keyframes`
 0% {
-    transform: translateY(-100%);
+    transform: translateY(${start}%);
     opacity: 0;
 }
 
 100% {
-    transform: translateY(0%);
+    transform: translateY(${end}%);
     opacity: 1;
 }
 `;
 
-export const fadeFromLeft = keyframes`
+export const fadeHorizontal = (start = -10, end = 0) => keyframes`
 0% {
-    transform: translateX(-10%);
+    transform: translateX(${start}%);
     opacity: 0;
 }
 
 100% {
-    transform: translateX(0%);
-    opacity: 1;
-}
-`;
-
-export const fadeFromBottom = keyframes`
-0% {
-    transform: translateY(100%);
-    opacity: 0;
-}
-
-100% {
-    transform: translateX(0%);
-    opacity: 1;
-}
-`;
-
-export const expandFromTop = keyframes`
-0% {
-    max-height: 0;
-    opacity: 0;
-}
-
-100% {
-    max-height: auto;
+    transform: translateX(${end}%);
     opacity: 1;
 }
 `;

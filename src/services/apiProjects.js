@@ -3,7 +3,7 @@ import supabase from "./supabase";
 export async function getProjects(projectList, projectValuesList) {
   let query = supabase
     .from("projects")
-    .select(projectValuesList?.lenght ? projectValuesList : "*");
+    .select(projectValuesList?.length ? projectValuesList.join(",") : "*");
 
   if (projectList?.length) {
     query = query.in("slug", projectList);

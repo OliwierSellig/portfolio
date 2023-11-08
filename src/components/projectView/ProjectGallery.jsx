@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { absoluteFull, backgroundCenter, tile } from "../../styles/Mixins";
-import { useState } from "react";
 import Modal from "../global/Modal";
 import ScreenshotFull from "./ScreenshotFull";
 import DotContainer from "./DotContainer";
 import NavButton from "./NavButton";
 import Carousel from "./Carousel";
 import { useScreenshots } from "../../contexts/ScreenshotsContext";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
   cursor: pointer;
   overflow: clip;
   z-index: 50;
+  animation: ${fadeHorizontal(20, 0)} 1s;
 
   & > button:first-of-type {
     transform: translate(-100%, -50%);
@@ -76,14 +77,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-function ProjectGallery() {
-  const screenshoots = [
-    { url: "/img/wbs.png", name: "GameSpace" },
-    { url: "/img/charlies-full.png", name: "Charlie's" },
-    { url: "/img/portfolio.png", name: "Portfolio" },
-    { url: "/img/deermood.png", name: "Deermood" },
-  ];
-
+function ProjectGallery({ screenshots }) {
   const { iterator, setIterator, canGoPrev, goPrev, canGoNext, goNext } =
     useScreenshots();
 
@@ -91,12 +85,7 @@ function ProjectGallery() {
     <Modal>
       <Modal.Open opens="screenshot">
         <StyledContainer>
-          <Carousel
-            list={screenshoots}
-            source="url"
-            alt="name"
-            iterator={iterator}
-          />
+          <Carousel list={screenshots} iterator={iterator} />
           <NavButton
             prev={true}
             active={canGoPrev}
@@ -109,14 +98,14 @@ function ProjectGallery() {
           <NavButton
             prev={false}
             active={canGoNext}
-            handleClick={() => goNext(screenshoots)}
+            handleClick={() => goNext(screenshots)}
             top={50}
             left={100}
             translateX={-100}
             translateY={-50}
           />
           <DotContainer
-            list={screenshoots}
+            list={screenshots}
             iterator={iterator}
             setIterator={setIterator}
             top={100}
@@ -127,7 +116,7 @@ function ProjectGallery() {
         </StyledContainer>
       </Modal.Open>
       <Modal.Window name="screenshot">
-        <ScreenshotFull list={screenshoots} />
+        <ScreenshotFull list={screenshots} />
       </Modal.Window>
     </Modal>
   );

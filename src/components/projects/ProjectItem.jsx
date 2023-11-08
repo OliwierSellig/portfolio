@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { fadeFromLeft } from "../../styles/Animations";
+import { fadeHorizontal } from "../../styles/Animations";
 import { absoluteFull, backgroundCenter } from "../../styles/Mixins";
 import { Link } from "react-router-dom";
+import { useTechnologies } from "../../hooks/useTechnologies";
+import Loader from "../global/Loader";
+import ProjectLoader from "./ProjectLoader";
 
 const Container = styled.li`
   position: relative;
@@ -75,13 +78,13 @@ const Container = styled.li`
       & ul {
         opacity: 1;
         visibility: visible;
-        animation: ${fadeFromLeft} 1s;
+        animation: ${fadeHorizontal(-10, 0)} 1s;
       }
 
       & nav {
         opacity: 1;
         visibility: visible;
-        animation: ${fadeFromLeft} 1.2s;
+        animation: ${fadeHorizontal(-10, 0)} 1.2s;
       }
     }
   }
@@ -158,20 +161,29 @@ const ProjectLink = styled(Link)`
   }
 `;
 
-function ProjectItem({ project }) {
-  return (
-    <Container tabIndex={0} $cover={project?.cover}>
+function ProjectItem({ project, isLoading }) {
+  const { technologies, isLoading: loadingTechnologies } = useTechnologies(
+    project?.techstack
+  );
+
+  return !isLoading && project?.name ? (
+    <Container tabIndex={0} $cover={project?.images.at(0)}>
       <ProjectBox>
         <ProjectTitle>{project?.name}</ProjectTitle>
         <ProjectRow>
-          {project?.stack.map((tech, i) => (
-            <TechItem key={i}>
-              <img src={tech} alt="Project Tech" />
-            </TechItem>
-          ))}
+          {(loadingTechnologies || technologies.length < 1) && (
+            <Loader size={3.8} />
+          )}
+          {!loadingTechnologies &&
+            technologies.length > 1 &&
+            technologies?.map((tech, i) => (
+              <TechItem key={i}>
+                <img src={tech?.icon} alt={tech?.name} />
+              </TechItem>
+            ))}
         </ProjectRow>
         <ProjectRow as="nav">
-          <ProjectLink as="a" href={project?.url || "#"} target="_blank">
+          <ProjectLink as="a" href={project?.live_url || "/"} target="_blank">
             Live Preview
           </ProjectLink>
           <ProjectLink as={Link} to={project?.slug}>
@@ -180,6 +192,8 @@ function ProjectItem({ project }) {
         </ProjectRow>
       </ProjectBox>
     </Container>
+  ) : (
+    <ProjectLoader />
   );
 }
 

@@ -13,12 +13,12 @@ const CarouselItem = styled.li`
   transition: all 0.3s ease-in-out;
 `;
 
-function Carousel({ list = [], source, alt, iterator }) {
+function Carousel({ list = [], iterator }) {
   return (
     <StyledCarousel>
       {list?.map((s, i) => (
         <CarouselItem key={i} $pos={i - iterator}>
-          <img src={s[source]} alt={s[alt]} />
+          <img src={s} alt={`Image ${i + 1}`} />
         </CarouselItem>
       ))}
     </StyledCarousel>
