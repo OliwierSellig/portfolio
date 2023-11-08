@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ContactItem from "./ContactItem";
-import { contactOptions } from "../../utils";
+import { contactOptions } from "../../services/utils";
 
 const StyledContactList = styled.ul`
   display: grid;

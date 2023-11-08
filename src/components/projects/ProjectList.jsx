@@ -1,7 +1,7 @@
 import ProjectItem from "./ProjectItem";
 import CustomGrid from "../global/CustomGrid";
 import ComingSoon from "./ComingSoon";
-import { projectsList } from "../../utils";
+import { projectsList } from "../../services/utils";
 
 function ProjectList() {
   return (

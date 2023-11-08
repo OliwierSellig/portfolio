@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TechnologiesItem from "./TechnologiesItem";
 import { tile } from "../../styles/Mixins";
-import { technologyList } from "../../utils";
+import { technologyList } from "../../services/utils";
 
 const StyledTechnologiesList = styled.ul`
   ${tile}
