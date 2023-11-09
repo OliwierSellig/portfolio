@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { flexCenter } from "../../styles/Mixins";
 import Loader from "../global/Loader";
 
-const StyledLoader = styled.div`
+const StyledLoader = styled.li`
   width: 100%;
   aspect-ratio: 16/9;
   background-color: var(--color-background);

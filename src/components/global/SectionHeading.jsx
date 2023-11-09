@@ -1,11 +1,18 @@
 import styled from "styled-components";
-import { tile } from "../../styles/Mixins";
+import { selectedAnimation, tile } from "../../styles/Mixins";
 
 const HeadingContainer = styled.div`
   grid-column: 1/-1;
   display: flex;
   align-items: center;
   justify-content: ${(props) => props.$justify || "start"};
+  ${(props) =>
+    selectedAnimation(
+      props.$animationType,
+      props.$animationTime,
+      props.$animationFadeFrom,
+      props.$animationFadeTo
+    )}
 `;
 
 const Heading = styled.h2`
@@ -16,9 +23,21 @@ const Heading = styled.h2`
   ${tile}
 `;
 
-function SectionHeading({ children, justify }) {
+function SectionHeading({
+  children,
+  justify,
+  animationType,
+  animationTime = 1,
+  animationFadeCoords = [],
+}) {
   return (
-    <HeadingContainer $justify={justify}>
+    <HeadingContainer
+      $animationType={animationType}
+      $animationTime={animationTime}
+      $animationFadeFrom={animationFadeCoords?.at(0)}
+      $animationFadeTo={animationFadeCoords?.at(1)}
+      $justify={justify}
+    >
       <Heading>{children}</Heading>
     </HeadingContainer>
   );

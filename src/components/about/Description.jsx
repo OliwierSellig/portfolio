@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import { Link } from "react-scroll";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledDescription = styled.div`
   grid-column: 2/3;
@@ -11,6 +12,7 @@ const StyledDescription = styled.div`
   align-items: start;
   justify-content: center;
   padding: 3.6rem;
+  animation: ${fadeHorizontal(15, 0)} 1s;
 
   @media only screen and (max-width: 830px) {
     padding: 2.4rem;

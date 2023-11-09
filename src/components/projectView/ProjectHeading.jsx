@@ -11,6 +11,21 @@ const StyledContainer = styled.header`
   align-items: start;
   padding: 3.6rem 2.4rem;
   animation: ${fadeHorizontal(-20, 0)} 1s;
+
+  @media only screen and (max-width: 840px) {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    aspect-ratio: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 3.6rem;
+    justify-content: space-between;
+  }
+`;
+
+const ProjectInfo = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const Heading = styled.h2`
@@ -27,6 +42,10 @@ const Navigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 1.4rem;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+  }
 `;
 
 const ProjectLink = styled.a`
@@ -66,13 +85,34 @@ const ProjectLink = styled.a`
     width: 2.6rem;
     height: 2.6rem;
   }
+
+  @media only screen and (max-width: 840px) {
+    padding: 1.6rem 4.2rem;
+  }
+
+  @media only screen and (max-width: 440px) {
+    padding: 1.6rem;
+    border-radius: 50%;
+    justify-content: center;
+
+    & span {
+      display: none;
+    }
+
+    & img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
 `;
 
 function ProjectHeading({ heading, techstack, liveUrl, repoUrl }) {
   return (
     <StyledContainer>
-      <Heading>{heading}</Heading>
-      <ProjectTech techstack={techstack} />
+      <ProjectInfo>
+        <Heading>{heading}</Heading>
+        <ProjectTech techstack={techstack} />
+      </ProjectInfo>
       <Navigation>
         <ProjectLink $dest="live" href={liveUrl} target="_blank">
           <img src="/svg/globe.svg" alt="Globe" />

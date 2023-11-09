@@ -1,4 +1,5 @@
 import { css } from "styled-components";
+import { fadeHorizontal, fadeIn, fadeVertical } from "./Animations";
 
 export const tile = css`
   background-color: var(--color-background);
@@ -24,3 +25,20 @@ export const absoluteFull = css`
   height: 100%;
   width: 100%;
 `;
+
+export const selectedAnimation = (
+  animationType,
+  animationTime,
+  fadeCoordStart,
+  fadeCoordsEnd
+) =>
+  css`
+    animation: ${animationType === "fadeIn"
+        ? fadeIn
+        : animationType === "fadeHorizontal"
+        ? fadeHorizontal(fadeCoordStart, fadeCoordsEnd)
+        : animationType === "fadeVertical"
+        ? fadeVertical(fadeCoordStart, fadeCoordsEnd)
+        : "none"}
+      ${animationTime}s;
+  `;

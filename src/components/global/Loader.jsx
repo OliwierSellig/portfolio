@@ -10,7 +10,7 @@ const StyledLoader = styled.svg`
     stroke: var(--color-blue-500);
     fill: none;
     stroke-dasharray: var(--total-length) var(--total-length);
-    animation: animate 2s linear infinite;
+    animation: animate 1.5s linear infinite;
   }
 
   @keyframes animate {

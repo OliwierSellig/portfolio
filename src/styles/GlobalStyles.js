@@ -117,7 +117,12 @@ body{
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
     color: var(--color-grey-700);
-    
+
+   
+}
+
+.modal{
+  overflow-y: hidden;
 }
 
 a,

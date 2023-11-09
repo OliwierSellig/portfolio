@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import { useDarkMode } from "../../contexts/DarkModeContext";
-import { fadeIn } from "../../styles/Animations";
+import { fadeVertical } from "../../styles/Animations";
 
 const StyledBox = styled.div`
   ${tile}
-  aspect-ratio: 4/3;
   padding: 3.6rem;
-  animation: ${fadeIn} 2s;
+  animation: ${fadeVertical(15, 0)} 1.2s;
+
+  @media only screen and (max-width: 840px) {
+    grid-column: 1/-1;
+  }
 `;
 
 const BoxHeading = styled.h3`

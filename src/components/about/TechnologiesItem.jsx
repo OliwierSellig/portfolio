@@ -58,7 +58,7 @@ const NameBox = styled.div`
 function TechnologiesItem({ item }) {
   return (
     <Item tabIndex={0}>
-      <img src={item?.icon} alt={item?.name} />
+      <img src={item?.icon} alt={`${item?.name} Logo`} />
       <NameBox>{item?.name}</NameBox>
     </Item>
   );

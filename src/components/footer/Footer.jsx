@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { backgroundCenter } from "../../styles/Mixins";
 import { useEffect, useState } from "react";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledFooter = styled.footer`
   border-top: 2px solid var(--color-grey-300);
@@ -22,6 +23,7 @@ const FooterCopy = styled.p`
   font-weight: 500;
   letter-spacing: var(--letter-spacing-default);
   color: var(--color-grey-600);
+  animation: ${fadeHorizontal(-10, 0)} 1s;
 `;
 
 const FooterMail = styled.button`
@@ -29,6 +31,7 @@ const FooterMail = styled.button`
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  animation: ${fadeHorizontal(10, 0)} 1s;
 
   & * {
     transition: all 0.2s;

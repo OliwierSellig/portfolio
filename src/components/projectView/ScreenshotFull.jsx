@@ -11,10 +11,9 @@ const ScreenshotContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
+  width: 95vw;
   max-width: 160rem;
-  min-width: 90rem;
-  margin: 4.8rem;
+  /* min-width: 90rem; */
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-default);
   animation: ${fadeIn} 0.3s;

@@ -17,7 +17,14 @@ function About() {
     >
       <Cover />
       <Description />
-      <SectionHeading justify="center">My Techstack</SectionHeading>
+      <SectionHeading
+        justify="center"
+        animationType="fadeHorizontal"
+        animationFadeCoords={[-5, 0]}
+        animationTime={1}
+      >
+        My Techstack
+      </SectionHeading>
       <TechnologiesList />
     </CustomGrid>
   );

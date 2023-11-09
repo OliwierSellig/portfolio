@@ -1,5 +1,9 @@
-import styled from "styled-components";
-import { absoluteFull, flexCenter } from "../../styles/Mixins";
+import styled, { css } from "styled-components";
+import {
+  absoluteFull,
+  flexCenter,
+  selectedAnimation,
+} from "../../styles/Mixins";
 import { fadeVertical } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
@@ -17,6 +21,14 @@ const StyledContactItem = styled.li`
     props.$darkMode
       ? "0rem 1rem 2.4rem 1.4rem rgba(18, 18, 18, 0.2);"
       : "none"};
+
+  ${(props) =>
+    selectedAnimation(
+      props.$animationType,
+      props.$animationTime,
+      props.$animationFadeFrom,
+      props.$animationFadeTo
+    )}
 
   & img {
     width: 8rem;
@@ -90,7 +102,13 @@ const ContactLink = styled.a`
   }
 `;
 
-function ContactItem({ option }) {
+function ContactItem({
+  option,
+  animationType,
+  animationTime,
+  animationFadeFrom,
+  animationFadeTo,
+}) {
   const { inDarkMode } = useDarkMode();
 
   return (
@@ -98,6 +116,10 @@ function ContactItem({ option }) {
       $darkMode={inDarkMode}
       tabIndex={0}
       $theme={option?.theme || "#fff"}
+      $animationTime={animationTime}
+      $animationType={animationType}
+      $animationFadeFrom={animationFadeFrom}
+      $animationFadeTo={animationFadeTo}
     >
       <img src={option?.cover} alt={option?.name || "Contact Option"} />
       <Container>

@@ -8,9 +8,14 @@ const CarouselItem = styled.li`
   left: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
   transform: ${(props) => `translateX(${props?.$pos * 100}%)`};
   transition: all 0.3s ease-in-out;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 function Carousel({ list = [], iterator }) {

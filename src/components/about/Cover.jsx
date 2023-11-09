@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { backgroundCenter, tile } from "../../styles/Mixins";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledCover = styled.div`
   position: relative;
@@ -9,6 +10,7 @@ const StyledCover = styled.div`
   background-image: url("/img/my-photo.jpg");
   ${backgroundCenter}
   overflow: hidden;
+  animation: ${fadeHorizontal(-15, 0)} 1s;
 
   &:hover,
   &:focus {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import { fadeHorizontal } from "../../styles/Animations";
 
 const DarkModeToggle = styled.button`
   position: relative;
@@ -16,6 +17,7 @@ const DarkModeToggle = styled.button`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   z-index: 300;
+  animation: ${fadeHorizontal(-20, 0)} 1s;
 
   &:hover,
   &:focus {
@@ -55,6 +57,7 @@ function DarkMode() {
     <DarkModeToggle
       checked={inDarkMode}
       onClick={() => setInDarkMode((prev) => !prev)}
+      aria-label="Toggle Dark Mode"
     />
   );
 }

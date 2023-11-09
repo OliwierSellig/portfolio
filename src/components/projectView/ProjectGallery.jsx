@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { absoluteFull, backgroundCenter, tile } from "../../styles/Mixins";
+import { absoluteFull, tile } from "../../styles/Mixins";
 import Modal from "../global/Modal";
 import ScreenshotFull from "./ScreenshotFull";
 import DotContainer from "./DotContainer";
@@ -12,11 +12,11 @@ const StyledContainer = styled.div`
   position: relative;
   ${tile}
   aspect-ratio: 16/9;
-  ${backgroundCenter}
   cursor: pointer;
   overflow: clip;
   z-index: 50;
   animation: ${fadeHorizontal(20, 0)} 1s;
+  width: 100%;
 
   & > button:first-of-type {
     transform: translate(-100%, -50%);
@@ -74,6 +74,16 @@ const StyledContainer = styled.div`
       rgba(63, 63, 70, 0.2) 100%
     );
     opacity: 0;
+  }
+
+  @media only screen and (max-width: 1040px) {
+    aspect-ratio: auto;
+  }
+
+  @media only screen and (max-width: 840px) {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    aspect-ratio: 16/9;
   }
 `;
 
