@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
-import { fadeIn } from "../../styles/Animations";
+import { fadeVertical } from "../../styles/Animations";
 
 const Item = styled.li`
   position: relative;
   ${flexCenter}
   width: 100%;
   padding: 1.2rem 2.4rem;
-  animation: ${fadeIn} 0.6s;
+  animation: ${fadeVertical(10, 0)} ${(props) => `${1 / (props.$number / 2)}s`};
 
   & img {
     width: 8rem;
@@ -55,9 +55,10 @@ const NameBox = styled.div`
   background-image: var(--technology-background);
 `;
 
-function TechnologiesItem({ item }) {
+function TechnologiesItem({ item, number = 0 }) {
+  console.log(number);
   return (
-    <Item tabIndex={0}>
+    <Item tabIndex={0} $number={number}>
       <img src={item?.icon} alt={`${item?.name} Logo`} />
       <NameBox>{item?.name}</NameBox>
     </Item>

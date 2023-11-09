@@ -1,14 +1,14 @@
 import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./components/global/AppLayout";
-
 import { NavigationProvider } from "./contexts/NavigationCotext";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import ProjectView from "./pages/ProjectView";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./components/global/PageNotFound";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { DataProvider } from "./contexts/DataContext";
 
 const queryClient = new QueryClient();
 
@@ -16,20 +16,22 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <DarkModeProvider>
-        <NavigationProvider>
-          <GlobalStyles />
-          <BrowserRouter>
-            <Routes>
-              <Route element={<AppLayout />}>
-                <Route path="/" element={<Main />} />
-                <Route path=":slug" element={<ProjectView />} />
-              </Route>
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </NavigationProvider>
-      </DarkModeProvider>
+      <DataProvider>
+        <DarkModeProvider>
+          <NavigationProvider>
+            <GlobalStyles />
+            <BrowserRouter>
+              <Routes>
+                <Route element={<AppLayout />}>
+                  <Route path="/" element={<Main />} />
+                  <Route path=":slug" element={<ProjectView />} />
+                  <Route path="*" element={<PageNotFound />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </NavigationProvider>
+        </DarkModeProvider>
+      </DataProvider>
     </QueryClientProvider>
   );
 }

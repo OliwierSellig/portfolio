@@ -1,10 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { fadeHorizontal } from "../../styles/Animations";
 import { absoluteFull, backgroundCenter } from "../../styles/Mixins";
 import { Link } from "react-router-dom";
-import { useTechnologies } from "../../hooks/useTechnologies";
-import Loader from "../global/Loader";
-import ProjectLoader from "./ProjectLoader";
+import { useData } from "../../contexts/DataContext";
 
 const Container = styled.li`
   position: relative;
@@ -15,6 +13,11 @@ const Container = styled.li`
   ${backgroundCenter}
   transition: all 0.3s ease-in;
   overflow: hidden;
+  animation: ${(props) =>
+      css`
+        ${fadeHorizontal(props.$number % 2 === 0 ? -10 : 10, 0)}
+      `}
+    1s;
 
   &::before {
     content: "";
@@ -161,26 +164,21 @@ const ProjectLink = styled(Link)`
   }
 `;
 
-function ProjectItem({ project, isLoading }) {
-  const { technologies, isLoading: loadingTechnologies } = useTechnologies(
-    project?.techstack
-  );
+function ProjectItem({ project, number }) {
+  const { filterTechnologies } = useData();
 
-  return !isLoading && project?.name ? (
-    <Container tabIndex={0} $cover={project?.images.at(0)}>
+  const techstack = filterTechnologies(project?.techstack);
+
+  return (
+    <Container tabIndex={0} $cover={project?.images.at(0)} $number={number}>
       <ProjectBox>
         <ProjectTitle>{project?.name}</ProjectTitle>
         <ProjectRow>
-          {(loadingTechnologies || technologies.length < 1) && (
-            <Loader size={3.8} />
-          )}
-          {!loadingTechnologies &&
-            technologies.length > 1 &&
-            technologies?.map((tech, i) => (
-              <TechItem key={i}>
-                <img src={tech?.icon} alt={tech?.name} />
-              </TechItem>
-            ))}
+          {techstack?.map((tech, i) => (
+            <TechItem key={i}>
+              <img src={tech?.icon} alt={tech?.name} />
+            </TechItem>
+          ))}
         </ProjectRow>
         <ProjectRow as="nav">
           <ProjectLink as="a" href={project?.live_url || "/"} target="_blank">
@@ -192,8 +190,6 @@ function ProjectItem({ project, isLoading }) {
         </ProjectRow>
       </ProjectBox>
     </Container>
-  ) : (
-    <ProjectLoader />
   );
 }
 

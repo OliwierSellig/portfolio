@@ -10,6 +10,7 @@ import Loader from "../global/Loader";
 import SectionHeading from "../global/SectionHeading";
 import ExplanationVideo from "./ExplanationVideo";
 import ProjectContactList from "./ProjectContactList";
+import { useData } from "../../contexts/DataContext";
 
 const StyledLoader = styled.div`
   position: absolute;
@@ -30,11 +31,10 @@ const StyledLoader = styled.div`
 
 function ProjectDetails() {
   const { slug } = useParams();
-  const { isLoading, projects } = useProjects([slug]);
+  const { filterProjects } = useData();
+  const selectedProject = filterProjects([slug]);
 
-  const selectedProject = projects?.at(0);
-
-  return !isLoading && selectedProject?.id ? (
+  return (
     <>
       <CustomGrid columns={2} marginBottom={3.2}>
         <ProjectHeading
@@ -64,11 +64,6 @@ function ProjectDetails() {
         <ProjectContactList />
       </CustomGrid>
     </>
-  ) : (
-    <StyledLoader>
-      <Loader size={12} />
-      <span>Loading the project data, stay tuned!</span>
-    </StyledLoader>
   );
 }
 

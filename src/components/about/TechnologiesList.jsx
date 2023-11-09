@@ -3,6 +3,7 @@ import TechnologiesItem from "./TechnologiesItem";
 import { tile } from "../../styles/Mixins";
 import { useTechnologies } from "../../hooks/useTechnologies";
 import Loader from "../global/Loader";
+import { useData } from "../../contexts/DataContext";
 
 const LoaderContainer = styled.div`
   ${tile}
@@ -28,7 +29,9 @@ const StyledTechnologiesList = styled.ul`
 `;
 
 function TechnologiesList() {
-  const { isLoading, technologies } = useTechnologies([
+  const { filterTechnologies } = useData();
+
+  const techstack = filterTechnologies([
     "html",
     "css",
     "javascript",
@@ -41,16 +44,13 @@ function TechnologiesList() {
   return (
     <>
       <StyledTechnologiesList>
-        {(isLoading || technologies.length < 1) && (
-          <LoaderContainer>
-            <Loader />
-          </LoaderContainer>
-        )}
-        {!isLoading &&
-          technologies.length > 0 &&
-          technologies.map((tech, i) => (
-            <TechnologiesItem key={i} item={tech} />
-          ))}
+        {techstack.map((tech, i) => (
+          <TechnologiesItem
+            key={i}
+            item={tech}
+            number={i < 4 ? i + 1 : 7 - i}
+          />
+        ))}
       </StyledTechnologiesList>
     </>
   );

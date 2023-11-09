@@ -1,17 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProjects } from "../services/apiProjects";
 
-export function useProjects(projectsList, projectsValuesList) {
-  const list = projectsList || [];
-  const valuesList = projectsValuesList || [];
-
+export function useProjects() {
   const {
     isLoading,
     data: projects,
     error,
   } = useQuery({
-    queryKey: ["projects", projectsList, projectsValuesList],
-    queryFn: () => getProjects(list, valuesList),
+    queryKey: ["projects"],
+    queryFn: getProjects,
   });
 
   return { isLoading, projects, error };

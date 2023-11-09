@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import { Outlet } from "react-router";
+import { useData } from "../../contexts/DataContext";
+import LoadingWindow from "./LoadingWindow";
 
 const StyledLayout = styled.div`
   position: relative;
@@ -23,12 +25,12 @@ const StyledLayout = styled.div`
 `;
 
 function AppLayout() {
+  const { readyToShow } = useData();
+
   return (
     <StyledLayout>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <main>{readyToShow ? <Outlet /> : <LoadingWindow />}</main>
       <Footer />
     </StyledLayout>
   );

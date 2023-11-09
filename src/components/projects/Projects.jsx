@@ -13,7 +13,14 @@ function Projects() {
       rowGap={3.2}
       marginBottom={3.2}
     >
-      <SectionHeading justify="start">Projects I've worked on:</SectionHeading>
+      <SectionHeading
+        justify="start"
+        animationType="fadeHorizontal"
+        animationFadeCoords={[-5, 0]}
+        animationTime={1.5}
+      >
+        Projects I've worked on:
+      </SectionHeading>
       <ProjectList />
     </CustomGrid>
   );

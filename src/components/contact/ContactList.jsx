@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ContactItem from "../global/ContactItem";
-import { contactOptions } from "../../services/utils";
+import { useData } from "../../contexts/DataContext";
 
 const StyledContactList = styled.ul`
   display: grid;
@@ -13,9 +13,11 @@ const StyledContactList = styled.ul`
 `;
 
 function ContactList() {
+  const { contacts } = useData();
+
   return (
     <StyledContactList>
-      {contactOptions.map((option, i) => (
+      {contacts.map((option, i) => (
         <ContactItem
           animationTime={i / 4 + 1}
           animationType="fadeVertical"

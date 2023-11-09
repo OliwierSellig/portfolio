@@ -1,13 +1,7 @@
 import supabase from "./supabase";
 
-export async function getTechnologies(techList) {
-  let query = supabase.from("technologies").select("*");
-
-  if (techList?.length) {
-    query = query.in("slug", techList);
-  }
-
-  const { data, error } = await query;
+export async function getTechnologies() {
+  const { data, error } = await supabase.from("technologies").select("*");
 
   if (error) {
     console.error(error);

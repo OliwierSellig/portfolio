@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { contactOptions } from "../../services/utils";
+
 import ContactItem from "../global/ContactItem";
 import { fadeHorizontal } from "../../styles/Animations";
+import { useData } from "../../contexts/DataContext";
 
 const StyledCotnactList = styled.ul`
   width: 100%;
@@ -29,10 +30,15 @@ const StyledCotnactList = styled.ul`
 `;
 
 function ProjectContactList() {
+  const { filterContacts } = useData();
+
+  const contacts = filterContacts(["x", "mail"]);
+
   return (
     <StyledCotnactList>
-      <ContactItem option={contactOptions.at(2)} />
-      <ContactItem option={contactOptions.at(1)} />
+      {contacts.reverse().map((contact, i) => (
+        <ContactItem key={i} option={contact} />
+      ))}
     </StyledCotnactList>
   );
 }

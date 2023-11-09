@@ -4,7 +4,7 @@ import {
   backgroundCenter,
   flexCenter,
 } from "../../styles/Mixins";
-import ProjectLoader from "./ProjectLoader";
+import { fadeVertical } from "../../styles/Animations";
 
 const Container = styled.li`
   position: relative;
@@ -21,6 +21,7 @@ const Container = styled.li`
   color: var(--color-text-white);
   letter-spacing: var(--letter-spacing-default);
   background: transparent;
+  animation: ${fadeVertical(10, 0)} 1 s;
 
   &::before,
   &::after {
@@ -70,12 +71,8 @@ const Container = styled.li`
   }
 `;
 
-function ComingSoon({ isLoading, list = [] }) {
-  return isLoading && list?.length < 1 ? (
-    <ProjectLoader />
-  ) : (
-    <Container tabIndex={0}>Coming Soon</Container>
-  );
+function ComingSoon() {
+  return <Container tabIndex={0}>Coming Soon</Container>;
 }
 
 export default ComingSoon;

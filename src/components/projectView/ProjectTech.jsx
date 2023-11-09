@@ -3,6 +3,7 @@ import { useTechnologies } from "../../hooks/useTechnologies";
 import Loader from "../global/Loader";
 import { flexCenter } from "../../styles/Mixins";
 import { fadeIn } from "../../styles/Animations";
+import { useData } from "../../contexts/DataContext";
 
 const TechHeading = styled.p`
   font-size: 2rem;
@@ -52,29 +53,19 @@ const TechItem = styled.li`
   }
 `;
 
-const StyledLoader = styled.div`
-  height: 4rem;
-  ${flexCenter}
-`;
-
 function ProjectTech({ techstack }) {
-  const { isLoading, technologies } = useTechnologies(techstack);
+  const { filterTechnologies } = useData();
+  const technologies = filterTechnologies(techstack);
 
   return (
     <>
       <TechHeading>Techstack:</TechHeading>
       <TechList>
-        {!isLoading && technologies.length > 0 ? (
-          technologies?.map((tech, i) => (
-            <TechItem tabIndex={0} $name={tech.name} key={i}>
-              <img src={tech.icon} alt={tech.name} />
-            </TechItem>
-          ))
-        ) : (
-          <StyledLoader>
-            <Loader size={6} />
-          </StyledLoader>
-        )}
+        {technologies.map((tech, i) => (
+          <TechItem tabIndex={0} $name={tech.name} key={i}>
+            <img src={tech.icon} alt={tech.name} />
+          </TechItem>
+        ))}
       </TechList>
     </>
   );
