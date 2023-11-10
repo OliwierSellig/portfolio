@@ -9,6 +9,7 @@ const ErrorMessage = styled.p`
   align-items: start;
   flex-direction: column;
   gap: 6px;
+  padding: 2.4rem;
 `;
 
 const ErrorSign = styled.span`
@@ -29,6 +30,12 @@ const ErrorText = styled.span`
   & img {
     width: 6rem;
     height: 6rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    flex-direction: column;
+    gap: 2.4rem;
+    align-items: start;
   }
 `;
 

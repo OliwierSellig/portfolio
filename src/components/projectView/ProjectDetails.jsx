@@ -7,13 +7,14 @@ import SectionHeading from "../global/SectionHeading";
 import ExplanationVideo from "./ExplanationVideo";
 import ProjectContactList from "./ProjectContactList";
 import { useData } from "../../contexts/DataContext";
+import ProjectNotFound from "./ProjectNotFound";
 
 function ProjectDetails() {
   const { slug } = useParams();
   const { filterProjects } = useData();
   const selectedProject = filterProjects([slug]);
 
-  return (
+  return selectedProject?.id ? (
     <>
       <CustomGrid columns={2} marginBottom={3.2}>
         <ProjectHeading
@@ -43,6 +44,8 @@ function ProjectDetails() {
         <ProjectContactList />
       </CustomGrid>
     </>
+  ) : (
+    <ProjectNotFound projectName={slug} />
   );
 }
 

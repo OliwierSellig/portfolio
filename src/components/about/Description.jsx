@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
-import { Link } from "react-scroll";
 import { fadeHorizontal } from "../../styles/Animations";
+import CustomButton from "../global/CustomButton";
 
 const StyledDescription = styled.div`
   grid-column: 2/3;
@@ -22,6 +22,10 @@ const StyledDescription = styled.div`
     grid-column: 1/-1;
     aspect-ratio: auto;
     padding: 4.2rem;
+
+    & a {
+      padding: 1.6rem 4.2rem;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -77,32 +81,6 @@ const HighlightText = styled.span`
   -webkit-text-fill-color: transparent;
 `;
 
-const FindMeLink = styled(Link)`
-  background: var(--color-blue-600);
-  border-radius: var(--border-radius-default);
-  box-shadow: var(--color-blue-600) 0 1rem 2rem -1rem;
-  color: var(--color-text-white);
-  font-weight: 500;
-  padding: 1rem 3.2rem;
-  display: inline-block;
-  font-size: 1.8rem;
-  letter-spacing: 0.3px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.03);
-    background: var(--color-blue-500);
-    box-shadow: var(--color-blue-500) 0 10px 20px -10px;
-  }
-`;
-
 function Description() {
   return (
     <StyledDescription>
@@ -118,9 +96,16 @@ function Description() {
         designing and building websites. Feel free to take a look at my projects
         and reach out to connect!
       </AboutText>
-      <FindMeLink href="/" to="contact" smooth={true} offset={0} duration={500}>
+      <CustomButton
+        interSiteLink={true}
+        interSiteDest="contact"
+        theme="var(--color-blue-600)"
+        themeFocus="var(--color-blue-500)"
+        fontWeight={500}
+        padding={[1, 3.2, 1, 3.2]}
+      >
         Hire me!
-      </FindMeLink>
+      </CustomButton>
     </StyledDescription>
   );
 }

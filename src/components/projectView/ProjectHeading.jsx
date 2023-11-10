@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import ProjectTech from "./ProjectTech";
 import { fadeHorizontal } from "../../styles/Animations";
+import CustomButton from "../global/CustomButton";
 
 const StyledContainer = styled.header`
   ${tile};
@@ -20,6 +21,23 @@ const StyledContainer = styled.header`
     align-items: center;
     gap: 3.6rem;
     justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 440px) {
+    & a {
+      padding: 2rem;
+      border-radius: 50%;
+      justify-content: center;
+
+      & span {
+        display: none;
+      }
+
+      & img {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
   }
 `;
 
@@ -48,64 +66,6 @@ const Navigation = styled.nav`
   }
 `;
 
-const ProjectLink = styled.a`
-  padding: 1.2rem 2.8rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: var(--border-radius-default);
-  background-color: ${(props) =>
-    props.$dest === "repo" ? "#28282B" : "var(--color-blue-600)"};
-  box-shadow: 0 2rem 4rem
-    ${(props) =>
-      props.$dest === "repo"
-        ? "rgba(40, 40, 43, 0.2)"
-        : "rgba(37, 99, 235, 0.15)"};
-
-  cursor: pointer;
-  transition: all 0.2s;
-  user-select: none;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.03);
-
-    background-color: ${(props) =>
-      props.$dest === "repo" ? "#3e3e40" : "var(--color-blue-500)"};
-  }
-
-  & span {
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: var(--letter-spacing-default);
-    color: var(--color-text-white);
-  }
-
-  & img {
-    width: 2.6rem;
-    height: 2.6rem;
-  }
-
-  @media only screen and (max-width: 840px) {
-    padding: 1.6rem 4.2rem;
-  }
-
-  @media only screen and (max-width: 440px) {
-    padding: 1.6rem;
-    border-radius: 50%;
-    justify-content: center;
-
-    & span {
-      display: none;
-    }
-
-    & img {
-      width: 4rem;
-      height: 4rem;
-    }
-  }
-`;
-
 function ProjectHeading({ heading, techstack, liveUrl, repoUrl }) {
   return (
     <StyledContainer>
@@ -114,14 +74,26 @@ function ProjectHeading({ heading, techstack, liveUrl, repoUrl }) {
         <ProjectTech techstack={techstack} />
       </ProjectInfo>
       <Navigation>
-        <ProjectLink $dest="live" href={liveUrl} target="_blank">
+        <CustomButton
+          isLink={true}
+          dest={liveUrl}
+          padding={[1.2, 2.8, 1.2, 2.8]}
+          theme="var(--color-blue-600)"
+          themeFocus="var(--color-blue-500)"
+        >
           <img src="/svg/globe.svg" alt="Globe" />
           <span>Live Server</span>
-        </ProjectLink>
-        <ProjectLink $dest="repo" href={repoUrl} target="_blank">
+        </CustomButton>
+        <CustomButton
+          isLink={true}
+          dest={repoUrl}
+          padding={[1.2, 2.8, 1.2, 2.8]}
+          theme="#28282B"
+          themeFocus="#3e3e40"
+        >
           <img src="/svg/github-mark.svg" alt="Github" />
           <span>Repository</span>
-        </ProjectLink>
+        </CustomButton>
       </Navigation>
     </StyledContainer>
   );
