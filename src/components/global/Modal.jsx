@@ -7,9 +7,8 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
-
-import styled from "styled-components";
 import { fadeIn } from "../../styles/Animations";
+import styled from "styled-components";
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -22,8 +21,8 @@ const ModalBackground = styled.div`
     rgba(21, 21, 21, 0.5),
     rgba(21, 21, 21, 0.5)
   );
-  animation: ${fadeIn} 0.3s;
   backdrop-filter: blur(5px);
+  animation: ${fadeIn} 0.3s;
 `;
 
 const ModalContext = createContext();
@@ -44,7 +43,14 @@ function Modal({ children }) {
 function Open({ children, opens: opensWindowName }) {
   const { open } = useContext(ModalContext);
 
-  return cloneElement(children, { onClick: () => open(opensWindowName) });
+  return cloneElement(children, {
+    onClick: () => open(opensWindowName),
+    onKeyDown: (e) => {
+      if (e.key === "Enter") {
+        open(opensWindowName);
+      }
+    },
+  });
 }
 
 function Window({ name, children }) {

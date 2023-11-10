@@ -1,26 +1,24 @@
 import styled from "styled-components";
 
-const StyledCarousel = styled.ul``;
-
 const CarouselItem = styled.li`
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   transform: ${(props) => `translateX(${props?.$pos * 100}%)`};
   transition: all 0.3s ease-in-out;
 
   & img {
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `;
 
 function Carousel({ list = [], iterator, full = false }) {
   return (
-    <StyledCarousel>
+    <ul>
       {list?.map((s, i) => (
         <CarouselItem key={i} $pos={i - iterator}>
           <img
@@ -31,7 +29,7 @@ function Carousel({ list = [], iterator, full = false }) {
           />
         </CarouselItem>
       ))}
-    </StyledCarousel>
+    </ul>
   );
 }
 

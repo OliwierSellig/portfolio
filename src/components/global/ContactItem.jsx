@@ -1,4 +1,3 @@
-import styled, { css } from "styled-components";
 import {
   absoluteFull,
   flexCenter,
@@ -6,22 +5,22 @@ import {
 } from "../../styles/Mixins";
 import { fadeVertical } from "../../styles/Animations";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const StyledContactItem = styled.li`
   position: relative;
+  z-index: 10;
+  ${flexCenter}
   width: 100%;
   aspect-ratio: 4/3;
   border-radius: var(--border-radius-default);
-  background-color: ${(props) => props.$theme};
-  ${flexCenter}
-  overflow: hidden;
-  transition: all 0.3s;
-  z-index: 10;
   box-shadow: ${(props) =>
     props.$darkMode
       ? "0rem 1rem 2.4rem 1.4rem rgba(18, 18, 18, 0.2);"
       : "none"};
-
+  background-color: ${(props) => props.$theme};
+  transition: all 0.3s;
+  overflow: hidden;
   ${(props) =>
     selectedAnimation(
       props.$animationType,
@@ -57,33 +56,33 @@ const StyledContactItem = styled.li`
 const Container = styled.div`
   ${absoluteFull}
   ${flexCenter}
-  opacity: 0;
   background-image: radial-gradient(
     circle,
     rgba(31, 41, 55, 0.8) 0%,
     rgba(31, 41, 55, 0.6) 100%
-  );
-  visibility: hidden;
+    );
   transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
 `;
 
 const ContactLink = styled.a`
-  font-size: 2.4rem;
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing-default);
-  color: #f9fafb;
-  transition: all 0.3s;
   position: relative;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: #f9fafb;
+  letter-spacing: var(--letter-spacing-default);
+  transition: all 0.3s;
 
   &::before {
     content: "";
     position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 2.4px;
     border-radius: 8px;
     background-color: #f9fafb;
-    bottom: 0;
-    left: 0;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;

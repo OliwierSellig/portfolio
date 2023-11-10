@@ -1,23 +1,23 @@
-import styled from "styled-components";
-import { useDarkMode } from "../../contexts/DarkModeContext";
 import { fadeHorizontal } from "../../styles/Animations";
+import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const DarkModeToggle = styled.button`
   position: relative;
+  z-index: 300;
   width: 8.4rem;
   aspect-ratio: 2/1;
-  border-radius: var(--border-radius-default);
   border: 3px solid
     ${(props) =>
       props.checked ? "var(--color-night-border)" : "var(--color-day-border)"};
+  border-radius: var(--border-radius-default);
   background-color: ${(props) =>
     props.checked
       ? "var(--color-night-background)"
       : "var(--color-day-background)"};
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
-  z-index: 300;
   animation: ${fadeHorizontal(-20, 0)} 1s;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -32,20 +32,20 @@ const DarkModeToggle = styled.button`
 
   &::after {
     content: "";
-    display: block;
     position: absolute;
-    width: 3.4rem;
-    transform: translateY(-50%);
     left: ${(props) => (props.checked === true ? "4.4rem" : "0.2rem")};
+    display: block;
+    width: 3.4rem;
+    aspect-ratio: 1/1;
     border: 3px solid
       ${(props) =>
         props.checked ? "var(--color-moon-border)" : "var(--color-sun-border)"};
+    border-radius: 50%;
     background-color: ${(props) =>
       props.checked
         ? "var(--color-moon-background)"
         : "var(--color-sun-background)"};
-    aspect-ratio: 1/1;
-    border-radius: 50%;
+    transform: translateY(-50%);
     transition: all 0.3s ease-in-out;
   }
 `;

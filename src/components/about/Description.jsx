@@ -1,17 +1,17 @@
-import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
 import { fadeHorizontal } from "../../styles/Animations";
 import CustomButton from "../global/CustomButton";
+import styled from "styled-components";
 
 const StyledDescription = styled.div`
   grid-column: 2/3;
-  ${tile}
-  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  aspect-ratio: 1/1;
   padding: 3.6rem;
+  ${tile}
   animation: ${fadeHorizontal(15, 0)} 1s;
 
   @media only screen and (max-width: 830px) {
@@ -44,22 +44,22 @@ const Introduction = styled.h1`
 `;
 
 const PreInto = styled.span`
-  font-size: 2rem;
   font-weight: 600;
+  font-size: 2rem;
   color: var(--color-grey-700);
 `;
 
 const Name = styled.span`
-  font-size: 6.4rem;
-  color: var(--color-blue-500);
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  line-height: 1.2;
-  font-family: "Noto Sans", sans-serif;
   background: linear-gradient(#60a5fa, #3b82f6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-size: 6.4rem;
+  color: var(--color-blue-500);
+  line-height: 1.2;
+  letter-spacing: 0.3px;
 
   @media only screen and (max-width: 1024px) {
     font-size: 5.8rem;
@@ -67,18 +67,18 @@ const Name = styled.span`
 `;
 
 const AboutText = styled.p`
+  margin-bottom: 2.4rem;
   font-size: 1.8rem;
   line-height: 1.5;
-  margin-bottom: 2.4rem;
 `;
 
 const HighlightText = styled.span`
-  font-size: 2.2rem;
-  font-weight: 500;
   background: linear-gradient(#60a5fa, #3b82f6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 2.2rem;
 `;
 
 function Description() {

@@ -1,16 +1,15 @@
-import styled from "styled-components";
-import TechnologiesItem from "./TechnologiesItem";
 import { tile } from "../../styles/Mixins";
-
 import { useData } from "../../contexts/DataContext";
+import TechnologiesItem from "./TechnologiesItem";
+import styled from "styled-components";
 
 const StyledTechnologiesList = styled.ul`
-  ${tile}
   grid-column: 1/-1;
   display: grid;
+  grid-template-columns: repeat(7, 1fr);
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(7, 1fr);
+  ${tile}
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);

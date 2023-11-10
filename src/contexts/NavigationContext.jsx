@@ -24,7 +24,11 @@ function NavigationProvider({ children }) {
 
     document.addEventListener("scroll", hideNav);
 
-    return document.removeEventListener("scroll", hideNav);
+    function returnHideNav() {
+      document.removeEventListener("scroll", hideNav);
+    }
+
+    return returnHideNav;
   }, []);
 
   useEffect(() => {

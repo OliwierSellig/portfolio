@@ -1,4 +1,4 @@
-import { useNavigation } from "../../contexts/NavigationCotext";
+import { useNavigation } from "../../contexts/NavigationContext";
 import CustomGrid from "../global/CustomGrid";
 import SectionHeading from "../global/SectionHeading";
 import Cover from "./Cover";

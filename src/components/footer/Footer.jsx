@@ -1,16 +1,16 @@
+import { useEffect, useState } from "react";
+import { backgroundCenter } from "../../styles/Mixins";
+import { fadeHorizontal } from "../../styles/Animations";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 import CopyToClipboard from "react-copy-to-clipboard";
 import styled from "styled-components";
-import { backgroundCenter } from "../../styles/Mixins";
-import { useEffect, useState } from "react";
-import { useDarkMode } from "../../contexts/DarkModeContext";
-import { fadeHorizontal } from "../../styles/Animations";
 
 const StyledFooter = styled.footer`
-  border-top: 2px solid var(--color-grey-300);
-  padding: 2.4rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 2.4rem 0;
+  border-top: 2px solid var(--color-grey-300);
 
   @media only screen and (max-width: 380px) {
     flex-direction: column;
@@ -19,10 +19,10 @@ const StyledFooter = styled.footer`
 `;
 
 const FooterCopy = styled.p`
-  font-size: 1.8rem;
   font-weight: 500;
-  letter-spacing: var(--letter-spacing-default);
+  font-size: 1.8rem;
   color: var(--color-grey-600);
+  letter-spacing: var(--letter-spacing-default);
   animation: ${fadeHorizontal(-10, 0)} 1s;
 `;
 
@@ -30,8 +30,8 @@ const FooterMail = styled.button`
   display: flex;
   align-items: center;
   gap: 6px;
-  cursor: pointer;
   animation: ${fadeHorizontal(10, 0)} 1s;
+  cursor: pointer;
 
   & * {
     transition: all 0.2s;
@@ -48,20 +48,20 @@ const FooterMail = styled.button`
 
 const MailText = styled.span`
   position: relative;
-  font-size: 1.8rem;
   font-weight: 500;
-  letter-spacing: var(--letter-spacing-default);
+  font-size: 1.8rem;
   color: var(--color-grey-600);
+  letter-spacing: var(--letter-spacing-default);
 
   &::before {
     content: "";
     position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 2px;
     border-radius: 8px;
     background-color: var(--color-grey-400);
-    bottom: 0;
-    left: 0;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
@@ -70,15 +70,17 @@ const MailText = styled.span`
 
 const MailIcon = styled.div`
   display: block;
-  background-image: ${(props) =>
-    props.$copied
-      ? 'url("/svg/check-green.svg")'
-      : props.$darkMode
-      ? 'url("/svg/copy-dark.svg")'
-      : 'url("/svg/copy-light.svg")'};
-  ${backgroundCenter}
   width: 2.8rem;
   height: 2.8rem;
+  background-image: ${(props) =>
+    `url(/svg/${
+      props.$copied
+        ? "check-green"
+        : props.$darkMode
+        ? "copy-dark"
+        : "copy-light"
+    }.svg)`};
+  ${backgroundCenter}
 `;
 
 function Footer() {

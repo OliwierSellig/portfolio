@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { tile } from "../../styles/Mixins";
-import { useDarkMode } from "../../contexts/DarkModeContext";
 import { fadeVertical } from "../../styles/Animations";
+import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const StyledBox = styled.div`
   ${tile}
@@ -20,8 +20,8 @@ const BoxHeading = styled.h3`
   margin-bottom: 8px;
 
   & span {
-    font-size: 3.4rem;
     font-weight: 600;
+    font-size: 3.4rem;
     letter-spacing: var(--letter-spacing-default);
   }
 

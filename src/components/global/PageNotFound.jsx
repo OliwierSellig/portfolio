@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import { absoluteFull, flexCenter } from "../../styles/Mixins";
+import { absoluteFull } from "../../styles/Mixins";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const ErrorMessage = styled.p`
   ${absoluteFull}
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: start;
-  flex-direction: column;
   gap: 6px;
   padding: 2.4rem;
 `;
@@ -23,8 +23,8 @@ const ErrorText = styled.span`
   gap: 8px;
 
   & span {
-    font-size: 2.8rem;
     font-weight: 500;
+    font-size: 2.8rem;
   }
 
   & img {
@@ -34,8 +34,8 @@ const ErrorText = styled.span`
 
   @media only screen and (max-width: 425px) {
     flex-direction: column;
-    gap: 2.4rem;
     align-items: start;
+    gap: 2.4rem;
   }
 `;
 

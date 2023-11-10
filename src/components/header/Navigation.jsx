@@ -1,29 +1,29 @@
-import styled, { css } from "styled-components";
-import { flexCenter } from "../../styles/Mixins";
 import { Link } from "react-scroll";
-import { useNavigation } from "../../contexts/NavigationCotext";
+import { flexCenter } from "../../styles/Mixins";
 import { fadeHorizontal, fadeIn } from "../../styles/Animations";
+import { useNavigation } from "../../contexts/NavigationContext";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled, { css } from "styled-components";
 
 const StyledNavigation = styled.nav`
   position: relative;
+  z-index: 300;
   display: flex;
   align-items: center;
   padding: 4px;
   border-radius: var(--border-radius-default);
   background-color: var(--color-grey-300);
-  z-index: 300;
-  overflow: hidden;
   animation: ${fadeHorizontal(10, 0)} 1s;
+  overflow: hidden;
 
   &::before {
-    position: absolute;
     content: "";
+    position: absolute;
     top: 8%;
     left: 5px;
-    border-radius: var(--border-radius-default);
     width: 14rem;
     height: 84%;
+    border-radius: var(--border-radius-default);
     background-color: var(--color-nav-active);
     transform: ${(props) =>
       props.$active === 0
@@ -50,10 +50,7 @@ const StyledNavigation = styled.nav`
 
   @media only screen and (max-width: 360px) {
     position: absolute;
-    top: ${(props) => (props.$open ? "8px" : "-8000px")};
-    opacity: ${(props) => (props.$open ? "1" : " 0")};
     top: 8px;
-    visibility: ${(props) => (props.$open ? "visible" : "hidden")};
     right: 1.2rem;
     flex-direction: column;
     padding: 0;
@@ -63,29 +60,31 @@ const StyledNavigation = styled.nav`
             ${fadeIn} 0.3s
           `
         : "none"};
+    opacity: ${(props) => (props.$open ? "1" : " 0")};
+    visibility: ${(props) => (props.$open ? "visible" : "hidden")};
 
     &::after {
-      position: fixed;
       content: "";
+      position: fixed;
       top: 0;
       left: 0;
+      z-index: 100;
       width: 100vw;
       height: 100vh;
-      z-index: 100;
     }
   }
 `;
 
 const StyledLink = styled(Link)`
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing-default);
-  cursor: pointer;
+  z-index: 300;
   ${flexCenter}
   width: 14rem;
   height: 4.2rem;
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-default);
   border-radius: var(--border-radius-default);
   transition: background-color 0.4s;
-  z-index: 300;
+  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
 
@@ -102,12 +101,12 @@ const StyledLink = styled(Link)`
 `;
 
 const MobileMenuButton = styled.button`
+  display: none;
   width: 6rem;
   height: 6rem;
+  padding: 1.2rem;
   border-radius: 50%;
   background-color: var(--color-grey-300);
-  padding: 1.2rem;
-  display: none;
 
   @media only screen and (max-width: 360px) {
     display: block;

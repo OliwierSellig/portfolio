@@ -9,24 +9,23 @@ const StyledButton = styled.button`
     `${props.$padding?.at(0)}rem ${props.$padding?.at(
       1
     )}rem ${props.$padding?.at(2)}rem ${props.$padding?.at(3)}rem`};
-  background-color: ${(props) => props.$theme};
+  border-radius: var(--border-radius-default);
   box-shadow: ${(props) => props.$theme} 0 1rem 2rem -1rem;
-  cursor: pointer;
+  background-color: ${(props) => props.$theme};
+  font-weight: ${(props) => props.$fontWeight};
+  font-size: ${(props) => `${props.$fontSize}rem`};
+  color: ${(props) => props.$color};
+  letter-spacing: var(--letter-spacing-default);
   transition: all 0.2s ease-in-out;
-  letter-spacing: 0.3px;
+  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  border-radius: var(--border-radius-default);
-  font-size: ${(props) => `${props.$fontSize}rem`};
-  font-weight: ${(props) => props.$fontWeight};
-  letter-spacing: var(--letter-spacing-default);
-  color: ${(props) => props.$color};
 
   &:focus,
   &:hover {
-    background-color: ${(props) => props.$themeFocus};
     box-shadow: 0 2rem 4rem ${(props) => `rgba(${props.$themeFocusRGB}, 0.15)`};
+    background-color: ${(props) => props.$themeFocus};
     transform: scale(1.03);
   }
 

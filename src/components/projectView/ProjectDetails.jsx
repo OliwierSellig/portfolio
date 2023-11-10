@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
+import { useData } from "../../contexts/DataContext";
 import CustomGrid from "../global/CustomGrid";
+import SectionHeading from "../global/SectionHeading";
 import ProjectGallery from "./ProjectGallery";
 import ProjectHeading from "./ProjectHeading";
 import ProjectTextBox from "./ProjectTextBox";
-import SectionHeading from "../global/SectionHeading";
 import ExplanationVideo from "./ExplanationVideo";
 import ProjectContactList from "./ProjectContactList";
-import { useData } from "../../contexts/DataContext";
 import ProjectNotFound from "./ProjectNotFound";
 
 function ProjectDetails() {

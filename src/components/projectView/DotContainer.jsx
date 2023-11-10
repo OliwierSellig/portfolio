@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const StyledDotContainer = styled.nav`
   position: absolute;
+  top: ${(props) => `${props.$top}%`};
+  left: ${(props) => `${props.$left}%`};
   z-index: 200;
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  top: ${(props) => `${props.$top}%`};
-  left: ${(props) => `${props.$left}%`};
   transform: ${(props) =>
     `translate(${props.$translateX}%, ${props.$translateY}%)`};
   transition: all 0.2s;
@@ -18,10 +18,10 @@ const Dot = styled.button`
   height: 1.2rem;
   border: 2px solid var(--color-text-white);
   border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s;
   background-color: ${(props) =>
     props.$active ? "var(--color-text-white)" : "transparent"};
+  transition: all 0.2s;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -53,6 +53,12 @@ function DotContainer({
           onClick={(e) => {
             e.stopPropagation();
             setIterator(i);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.stopPropagation();
+              setIterator(i);
+            }
           }}
           $active={i === iterator}
           aria-label={`Set active image as ${i + 1}`}

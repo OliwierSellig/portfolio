@@ -1,6 +1,5 @@
-import styled from "styled-components";
-
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
+import styled from "styled-components";
 
 const Loader = styled.svg`
   width: 14rem;

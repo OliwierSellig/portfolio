@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { selectedAnimation, tile } from "../../styles/Mixins";
+import styled from "styled-components";
 
 const HeadingContainer = styled.div`
   grid-column: 1/-1;
@@ -16,11 +16,11 @@ const HeadingContainer = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing-default);
-  font-size: 2rem;
   padding: 8px 3.2rem;
   ${tile}
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: var(--letter-spacing-default);
 `;
 
 function SectionHeading({

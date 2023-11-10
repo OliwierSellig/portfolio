@@ -1,9 +1,9 @@
-import { css } from "styled-components";
 import { fadeHorizontal, fadeIn, fadeVertical } from "./Animations";
+import { css } from "styled-components";
 
 export const tile = css`
-  background-color: var(--color-background);
   border-radius: var(--border-radius-default);
+  background-color: var(--color-background);
 `;
 
 export const backgroundCenter = css`
@@ -22,8 +22,8 @@ export const absoluteFull = css`
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
 `;
 
 export const selectedAnimation = (

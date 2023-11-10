@@ -1,15 +1,14 @@
-import styled from "styled-components";
-
-import ContactItem from "../global/ContactItem";
 import { fadeHorizontal } from "../../styles/Animations";
 import { useData } from "../../contexts/DataContext";
+import ContactItem from "../global/ContactItem";
+import styled from "styled-components";
 
 const StyledCotnactList = styled.ul`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+  width: 100%;
 
   @media only screen and (max-width: 840px) {
     grid-column: 1/-1;

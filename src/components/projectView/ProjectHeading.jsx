@@ -1,33 +1,33 @@
-import styled from "styled-components";
-import { tile } from "../../styles/Mixins";
-import ProjectTech from "./ProjectTech";
 import { fadeHorizontal } from "../../styles/Animations";
+import { tile } from "../../styles/Mixins";
 import CustomButton from "../global/CustomButton";
+import ProjectTech from "./ProjectTech";
+import styled from "styled-components";
 
 const StyledContainer = styled.header`
-  ${tile};
-  aspect-ratio: 16/9;
   display: flex;
   flex-direction: column;
   align-items: start;
+  aspect-ratio: 16/9;
   padding: 3.6rem 2.4rem;
+  ${tile};
   animation: ${fadeHorizontal(-20, 0)} 1s;
 
   @media only screen and (max-width: 840px) {
     grid-column: 1/-1;
     grid-row: 1/2;
-    aspect-ratio: auto;
     flex-direction: row;
     align-items: center;
-    gap: 3.6rem;
     justify-content: space-between;
+    gap: 3.6rem;
+    aspect-ratio: auto;
   }
 
   @media only screen and (max-width: 440px) {
     & a {
+      justify-content: center;
       padding: 2rem;
       border-radius: 50%;
-      justify-content: center;
 
       & span {
         display: none;
@@ -47,13 +47,13 @@ const ProjectInfo = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 4.8rem;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 600;
-  letter-spacing: 2.4px;
   margin-bottom: 1.2rem;
   padding-bottom: 2px;
   border-bottom: 3px solid var(--color-grey-400);
+  font-weight: 600;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 4.8rem;
+  letter-spacing: 2.4px;
 `;
 
 const Navigation = styled.nav`

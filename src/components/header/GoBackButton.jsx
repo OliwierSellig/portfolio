@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { useDarkMode } from "../../contexts/DarkModeContext";
 import { fadeHorizontal } from "../../styles/Animations";
+import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const StyledButton = styled(Link)`
   position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 5rem;
+  padding: 1.2rem 4.2rem;
   border-radius: var(--border-radius-default);
   background-color: var(--color-grey-300);
-  padding: 1.2rem 4.2rem;
-  height: 5rem;
+  box-shadow: var(--back-button-shadow);
+  font-weight: 500;
   font-size: 1.8rem;
   letter-spacing: var(--letter-spacing-default);
-  font-weight: 500;
   cursor: pointer;
-  box-shadow: var(--back-button-shadow);
-  overflow: hidden;
   animation: ${fadeHorizontal(10, 0)} 1s;
+  overflow: hidden;
 
   &,
   & * {
@@ -26,10 +26,10 @@ const StyledButton = styled(Link)`
   }
 
   &::after {
+    content: 'Back to "/"';
     position: absolute;
     top: 50%;
     left: 50%;
-    content: 'Back to "/"';
     transform: translate(200%, -50%);
     transition: transform 0.2s;
   }

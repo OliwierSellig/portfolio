@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 import { fadeHorizontal } from "../../styles/Animations";
 import { absoluteFull, backgroundCenter } from "../../styles/Mixins";
-import { Link } from "react-router-dom";
 import { useData } from "../../contexts/DataContext";
+import styled, { css } from "styled-components";
 
 const Container = styled.li`
   position: relative;
@@ -12,37 +12,37 @@ const Container = styled.li`
   background-image: ${(props) => `url("${props.$cover.md}")`};
   ${backgroundCenter}
   transition: all 0.3s ease-in;
-  overflow: hidden;
   animation: ${(props) =>
       css`
         ${fadeHorizontal(props.$number % 2 === 0 ? -10 : 10, 0)}
       `}
     1s;
+  overflow: hidden;
 
   &::before {
     content: "";
     ${absoluteFull}
+    z-index: 20;
     background-image: linear-gradient(
       180deg,
       rgba(31, 41, 55, 0.3) 0%,
       rgba(31, 41, 55, 0.4) 60%
     );
-    z-index: 20;
-    opacity: 1;
     transition: all 0.3s;
+    opacity: 1;
   }
 
   &::after {
     content: "";
     ${absoluteFull}
+    z-index: 20;
     background-image: linear-gradient(
       180deg,
       rgba(31, 41, 55, 0.7) 0%,
       rgba(31, 41, 55, 0.7) 60%
     );
-    z-index: 20;
-    opacity: 0;
     transition: all 0.3s;
+    opacity: 0;
   }
 
   &:hover,
@@ -79,15 +79,15 @@ const Container = styled.li`
       }
 
       & ul {
+        animation: ${fadeHorizontal(-10, 0)} 1s;
         opacity: 1;
         visibility: visible;
-        animation: ${fadeHorizontal(-10, 0)} 1s;
       }
 
       & nav {
+        animation: ${fadeHorizontal(-10, 0)} 1.2s;
         opacity: 1;
         visibility: visible;
-        animation: ${fadeHorizontal(-10, 0)} 1.2s;
       }
     }
   }
@@ -106,15 +106,15 @@ const ProjectBox = styled.div`
   position: absolute;
   bottom: -30%;
   left: 0;
-  width: 100%;
-  height: max-content;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: end;
+  width: 100%;
+  height: max-content;
   padding: 2.4rem;
   transition: all 0.4s;
-  z-index: 40;
 
   @media only screen and (max-width: 768px) {
     bottom: -40%;
@@ -130,14 +130,14 @@ const ProjectBox = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  color: var(--color-text-white);
-  font-size: 3.2rem;
-  letter-spacing: 0.3px;
-  font-weight: 500;
-  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 1.2rem;
   padding-bottom: 2px;
   border-bottom: 2px solid #4b5563;
-  margin-bottom: 1.2rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-size: 3.2rem;
+  color: var(--color-text-white);
+  letter-spacing: 0.3px;
   transition: all 0.3s;
 `;
 
@@ -156,11 +156,11 @@ const TechItem = styled.li`
 `;
 
 const ProjectLink = styled(Link)`
-  font-size: 2rem;
   font-weight: 500;
+  font-size: 2rem;
   color: var(--color-text-white);
-  cursor: pointer;
   transition: all 0.2s;
+  cursor: pointer;
 
   &:hover,
   &:focus {

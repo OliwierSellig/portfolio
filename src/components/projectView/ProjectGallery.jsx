@@ -1,22 +1,22 @@
-import styled from "styled-components";
 import { absoluteFull, tile } from "../../styles/Mixins";
+import { fadeHorizontal } from "../../styles/Animations";
+import { useScreenshots } from "../../contexts/ScreenshotsContext";
 import Modal from "../global/Modal";
 import ScreenshotFull from "./ScreenshotFull";
 import DotContainer from "./DotContainer";
 import NavButton from "./NavButton";
 import Carousel from "./Carousel";
-import { useScreenshots } from "../../contexts/ScreenshotsContext";
-import { fadeHorizontal } from "../../styles/Animations";
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   position: relative;
-  ${tile}
-  aspect-ratio: 16/9;
-  cursor: pointer;
-  overflow: clip;
   z-index: 50;
-  animation: ${fadeHorizontal(20, 0)} 1s;
   width: 100%;
+  aspect-ratio: 16/9;
+  ${tile}
+  animation: ${fadeHorizontal(20, 0)} 1s;
+  overflow: clip;
+  cursor: pointer;
 
   & > button:first-of-type {
     transform: translate(-100%, -50%);
@@ -94,11 +94,11 @@ function ProjectGallery({ screenshots }) {
   return (
     <Modal>
       <Modal.Open opens="screenshot">
-        <StyledContainer>
+        <StyledContainer tabIndex={0}>
           <Carousel list={screenshots} iterator={iterator} />
           <NavButton
             prev={true}
-            active={canGoPrev}
+            active={canGoPrev()}
             handleClick={goPrev}
             top={50}
             left={0}
@@ -107,7 +107,7 @@ function ProjectGallery({ screenshots }) {
           />
           <NavButton
             prev={false}
-            active={canGoNext}
+            active={canGoNext(screenshots)}
             handleClick={() => goNext(screenshots)}
             top={50}
             left={100}

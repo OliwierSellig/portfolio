@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
 import { fadeVertical } from "../../styles/Animations";
+import styled from "styled-components";
 
 const Item = styled.li`
   position: relative;
@@ -42,17 +42,17 @@ const Item = styled.li`
 
 const NameBox = styled.div`
   ${absoluteFull}
-  color: var(--color-text-white);
-  border-radius: var(--border-radius-default);
   ${flexCenter}
-  font-size: 2.2rem;
-  letter-spacing: var(--letter-spacing-default);
+  border-radius: var(--border-radius-default);
+  background-image: var(--technology-background);
   font-weight: 500;
-  opacity: 0;
+  font-size: 2.2rem;
+  color: var(--color-text-white);
+  letter-spacing: var(--letter-spacing-default);
   transition: all 0.3s;
+  opacity: 0;
   user-select: none;
   -webkit-user-select: none;
-  background-image: var(--technology-background);
 `;
 
 function TechnologiesItem({ item, number = 0 }) {

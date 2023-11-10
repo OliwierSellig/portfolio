@@ -1,13 +1,11 @@
-import styled from "styled-components";
 import { backgroundCenter } from "../../styles/Mixins";
+import styled from "styled-components";
 
 const StyledNavButton = styled.button`
   position: absolute;
-  z-index: 200;
   top: ${(props) => `${props.$top}%`};
   left: ${(props) => `${props.$left}%`};
-  transform: ${(props) =>
-    `translate(${props.$translateX}%, ${props.$translateY}%)`};
+  z-index: 200;
   width: 6rem;
   height: 6rem;
   background-image: ${(props) =>
@@ -15,7 +13,9 @@ const StyledNavButton = styled.button`
       ? "url('/svg/arrow-next-light.svg')"
       : "url('/svg/arrow-prev-light.svg')"};
   ${backgroundCenter}
-  transition:  all 0.2s;
+  transform: ${(props) =>
+    `translate(${props.$translateX}%, ${props.$translateY}%)`};
+  transition: all 0.2s;
   opacity: ${(props) => (props.$active ? "1" : "0")};
   visibility: ${(props) => (props.$active ? "visible" : "hidden")};
   cursor: pointer;
@@ -44,6 +44,12 @@ function NavButton({
       onClick={(e) => {
         e.stopPropagation();
         handleClick?.();
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.stopPropagation();
+          handleClick?.();
+        }
       }}
       $active={active}
       $top={top}

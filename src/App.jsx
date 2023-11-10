@@ -1,15 +1,15 @@
-import GlobalStyles from "./styles/GlobalStyles";
-import AppLayout from "./components/global/AppLayout";
-import { NavigationProvider } from "./contexts/NavigationCotext";
-import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main";
-import ProjectView from "./pages/ProjectView";
-import PageNotFound from "./components/global/PageNotFound";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NavigationProvider } from "./contexts/NavigationContext";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { DataProvider } from "./contexts/DataContext";
 import { ScrollToTop } from "./services/helpers";
+import AppLayout from "./components/global/AppLayout";
+import PageNotFound from "./components/global/PageNotFound";
+import Main from "./pages/Main";
+import ProjectView from "./pages/ProjectView";
+import GlobalStyles from "./styles/GlobalStyles";
 
 const queryClient = new QueryClient();
 

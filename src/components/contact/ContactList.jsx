@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import ContactItem from "../global/ContactItem";
 import { useData } from "../../contexts/DataContext";
+import ContactItem from "../global/ContactItem";
+import styled from "styled-components";
 
 const StyledContactList = styled.ul`
   display: grid;

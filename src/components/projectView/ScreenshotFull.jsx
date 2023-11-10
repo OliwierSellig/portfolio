@@ -1,33 +1,32 @@
-import styled from "styled-components";
 import { fadeIn } from "../../styles/Animations";
+import { absoluteFull } from "../../styles/Mixins";
+import { useScreenshots } from "../../contexts/ScreenshotsContext";
 import Carousel from "./Carousel";
 import NavButton from "./NavButton";
 import DotContainer from "./DotContainer";
-import { absoluteFull } from "../../styles/Mixins";
-import { useScreenshots } from "../../contexts/ScreenshotsContext";
+import styled from "styled-components";
 
 const ScreenshotContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 95vw;
   max-width: 160rem;
-  /* min-width: 90rem; */
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-default);
+  transform: translate(-50%, -50%);
   animation: ${fadeIn} 0.3s;
   overflow: hidden;
 
   &::before {
     content: "";
     ${absoluteFull}
+    z-index: 100;
     background-image: linear-gradient(
       0deg,
       rgba(63, 63, 70, 0.2) 0%,
-      rgba(63, 63, 70, 0.0) 100%
+      rgba(63, 63, 70, 0) 100%
     );
-    z-index: 100;
   }
 `;
 

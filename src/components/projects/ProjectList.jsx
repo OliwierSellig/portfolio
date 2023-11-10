@@ -1,7 +1,7 @@
-import ProjectItem from "./ProjectItem";
-import CustomGrid from "../global/CustomGrid";
-import ComingSoon from "./ComingSoon";
 import { useData } from "../../contexts/DataContext";
+import CustomGrid from "../global/CustomGrid";
+import ProjectItem from "./ProjectItem";
+import ComingSoon from "./ComingSoon";
 
 function ProjectList() {
   const { projects } = useData();

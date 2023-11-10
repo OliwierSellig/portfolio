@@ -1,21 +1,21 @@
-import styled from "styled-components";
-import DarkMode from "./DarkMode";
-import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import DarkMode from "./DarkMode";
+import Navigation from "./Navigation";
 import GoBackButton from "./GoBackButton";
+import styled from "styled-components";
 
 const StyledHeader = styled.header`
   position: ${(props) => (props.$sticky ? "fixed" : "absolute")};
-  width: 100%;
-  max-width: 120rem;
-  padding: ${(props) => (props.$sticky ? "4px 2.4rem" : "2.4rem")};
+  top: 0;
+  left: 50%;
+  z-index: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 500;
-  top: 0;
-  left: 50%;
+  width: 100%;
+  max-width: 120rem;
+  padding: ${(props) => (props.$sticky ? "4px 2.4rem" : "2.4rem")};
   transform: translateX(-50%);
   transition: all 0.2s;
 

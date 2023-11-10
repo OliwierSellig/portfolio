@@ -1,18 +1,18 @@
-import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
 import { useDarkMode } from "../../contexts/DarkModeContext";
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   ${absoluteFull}
   ${flexCenter}
-  gap: 1.2rem;
-  text-align: center;
   flex-direction: column;
+  gap: 1.2rem;
   padding: 2.4rem;
+  text-align: center;
 
   & span {
-    font-size: 3.2rem;
     font-weight: 500;
+    font-size: 3.2rem;
     letter-spacing: var(--letter-spacing-default);
   }
 
