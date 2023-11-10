@@ -17,6 +17,7 @@ function CustomGrid({
   children,
   id = "",
   navigationRef = null,
+  as = "section",
 }) {
   return (
     <Grid
@@ -26,6 +27,7 @@ function CustomGrid({
       $columngap={columnGap}
       id={id}
       ref={navigationRef}
+      as={as}
     >
       {children}
     </Grid>

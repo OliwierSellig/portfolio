@@ -10,8 +10,6 @@ function DataProvider({ children }) {
   const { isLoading: loadingTechnologies, technologies } = useTechnologies();
   const { isLoading: loadingContacts, contacts } = useContacts();
 
-  console.log(projects);
-
   const lodadedData =
     !loadingContacts && !loadingProjects && !loadingTechnologies;
 

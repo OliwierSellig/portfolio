@@ -55,6 +55,7 @@ function DotContainer({
             setIterator(i);
           }}
           $active={i === iterator}
+          aria-label={`Set active image as ${i + 1}`}
         />
       ))}
     </StyledDotContainer>

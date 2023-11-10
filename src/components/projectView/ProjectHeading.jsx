@@ -55,12 +55,12 @@ const ProjectLink = styled.a`
   gap: 8px;
   border-radius: var(--border-radius-default);
   background-color: ${(props) =>
-    props.$dest === "repo" ? "#28282B" : "var(--color-blue-500)"};
+    props.$dest === "repo" ? "#28282B" : "var(--color-blue-600)"};
   box-shadow: 0 2rem 4rem
     ${(props) =>
       props.$dest === "repo"
         ? "rgba(40, 40, 43, 0.2)"
-        : "rgba(59, 130, 246, 0.15)"};
+        : "rgba(37, 99, 235, 0.15)"};
 
   cursor: pointer;
   transition: all 0.2s;
@@ -71,7 +71,7 @@ const ProjectLink = styled.a`
     transform: scale(1.03);
 
     background-color: ${(props) =>
-      props.$dest === "repo" ? "#3e3e40" : "var(--color-blue-400)"};
+      props.$dest === "repo" ? "#3e3e40" : "var(--color-blue-500)"};
   }
 
   & span {

@@ -50,6 +50,7 @@ function NavButton({
       $left={left}
       $translateX={translateX}
       $translateY={translateY}
+      aria-label={`Go ${prev ? "Prev" : "Next"}`}
     />
   );
 }

@@ -42,7 +42,7 @@ const Introduction = styled.h1`
 const PreInto = styled.span`
   font-size: 2rem;
   font-weight: 600;
-  color: var(--color-grey-600);
+  color: var(--color-grey-700);
 `;
 
 const Name = styled.span`
@@ -78,9 +78,9 @@ const HighlightText = styled.span`
 `;
 
 const FindMeLink = styled(Link)`
-  background: var(--color-blue-400);
+  background: var(--color-blue-600);
   border-radius: var(--border-radius-default);
-  box-shadow: var(--color-blue-400) 0 1rem 2rem -1rem;
+  box-shadow: var(--color-blue-600) 0 1rem 2rem -1rem;
   color: var(--color-text-white);
   font-weight: 500;
   padding: 1rem 3.2rem;

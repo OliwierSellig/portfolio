@@ -61,6 +61,7 @@ const GlobalStyles = createGlobalStyle`
     --color-blue-300: #93c5fd;
     --color-blue-400: #60a5fa;
     --color-blue-500: #3b82f6;
+    --color-blue-600: #2563eb;
     --color-day-background: #BFE6F7;
     --color-day-border: #80C1D7;
     --color-sun-background: #F5ED28;
