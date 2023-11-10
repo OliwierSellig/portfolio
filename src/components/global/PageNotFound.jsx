@@ -1,37 +1,51 @@
 import styled from "styled-components";
 import { absoluteFull, flexCenter } from "../../styles/Mixins";
-
-const Container = styled.section`
-  ${absoluteFull}
-  ${flexCenter}
-  flex-direction: column;
-  gap: 1.4rem;
-`;
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const ErrorMessage = styled.p`
+  ${absoluteFull}
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 6px;
 `;
 
 const ErrorSign = styled.span`
   font-weight: 500;
-  font-size: 4rem;
+  font-size: 8rem;
 `;
 
 const ErrorText = styled.span`
-  font-size: 2.4rem;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  & span {
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+
+  & img {
+    width: 6rem;
+    height: 6rem;
+  }
 `;
 
 function PageNotFound() {
+  const { inDarkMode } = useDarkMode();
+
   return (
-    <Container>
-      <ErrorMessage>
-        <ErrorSign>404</ErrorSign>
-        <ErrorText>We couldn't find the page you were looking for</ErrorText>
-      </ErrorMessage>
-    </Container>
+    <ErrorMessage>
+      <ErrorSign>404</ErrorSign>
+      <ErrorText>
+        <span>We couldn't find the page you were looking for</span>
+        <img
+          src={`/svg/ghost-${inDarkMode ? "dark" : "light"}.svg`}
+          alt="Ghost Icon"
+        />
+      </ErrorText>
+    </ErrorMessage>
   );
 }
 

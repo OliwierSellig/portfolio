@@ -3,31 +3,10 @@ import CustomGrid from "../global/CustomGrid";
 import ProjectGallery from "./ProjectGallery";
 import ProjectHeading from "./ProjectHeading";
 import ProjectTextBox from "./ProjectTextBox";
-import { useProjects } from "./../../hooks/useProjects";
-import styled from "styled-components";
-import { flexCenter } from "../../styles/Mixins";
-import Loader from "../global/Loader";
 import SectionHeading from "../global/SectionHeading";
 import ExplanationVideo from "./ExplanationVideo";
 import ProjectContactList from "./ProjectContactList";
 import { useData } from "../../contexts/DataContext";
-
-const StyledLoader = styled.div`
-  position: absolute;
-  width: 100%;
-  ${flexCenter}
-  flex-direction: column;
-  gap: 1.2rem;
-  height: 100%;
-  padding: 2.4rem;
-
-  & span {
-    font-size: 2.4rem;
-    font-weight: 500;
-    letter-spacing: var(--letter-spacing-default);
-    text-align: center;
-  }
-`;
 
 function ProjectDetails() {
   const { slug } = useParams();

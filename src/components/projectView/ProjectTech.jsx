@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { useTechnologies } from "../../hooks/useTechnologies";
-import Loader from "../global/Loader";
-import { flexCenter } from "../../styles/Mixins";
+
 import { fadeIn } from "../../styles/Animations";
 import { useData } from "../../contexts/DataContext";
 

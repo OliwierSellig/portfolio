@@ -1,19 +1,8 @@
 import styled from "styled-components";
 import TechnologiesItem from "./TechnologiesItem";
 import { tile } from "../../styles/Mixins";
-import { useTechnologies } from "../../hooks/useTechnologies";
-import Loader from "../global/Loader";
-import { useData } from "../../contexts/DataContext";
 
-const LoaderContainer = styled.div`
-  ${tile}
-  width: 100%;
-  grid-column: 1/-1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10.4rem;
-`;
+import { useData } from "../../contexts/DataContext";
 
 const StyledTechnologiesList = styled.ul`
   ${tile}

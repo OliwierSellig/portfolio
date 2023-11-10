@@ -4,7 +4,6 @@ import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import GoBackButton from "./GoBackButton";
-import { fadeIn } from "../../styles/Animations";
 
 const StyledHeader = styled.header`
   position: ${(props) => (props.$sticky ? "fixed" : "absolute")};
