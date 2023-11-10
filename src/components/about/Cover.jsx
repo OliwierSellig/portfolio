@@ -7,7 +7,7 @@ const StyledCover = styled.div`
   grid-column: 1/2;
   ${tile}
   aspect-ratio: 1/1;
-  background-image: url("/img/my-photo.jpg");
+  background-image: url("/img/my-photo.webp");
   ${backgroundCenter}
   overflow: hidden;
   animation: ${fadeHorizontal(-15, 0)} 1s;

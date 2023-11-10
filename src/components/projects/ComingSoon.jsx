@@ -40,7 +40,7 @@ const Container = styled.li`
         rgba(39, 47, 58, 0.6) 0%,
         rgba(31, 41, 55, 0.6) 60%
       ),
-      url("/img/tbm-l.png");
+      url("/img/tbm-l.webp");
     opacity: 1;
 
     @media only screen and (max-width: 600px) {
@@ -49,7 +49,7 @@ const Container = styled.li`
           rgba(39, 47, 58, 0.6) 0%,
           rgba(31, 41, 55, 0.6) 60%
         ),
-        url("/img/tbm-s.png");
+        url("/img/tbm-s.webp");
     }
   }
 
@@ -59,7 +59,7 @@ const Container = styled.li`
         rgba(39, 47, 58, 0.3) 0%,
         rgba(31, 41, 55, 0.3) 60%
       ),
-      url("/img/tbm-l.png");
+      url("/img/tbm-l.webp");
     opacity: 0;
 
     @media only screen and (max-width: 600px) {
@@ -68,7 +68,7 @@ const Container = styled.li`
           rgba(39, 47, 58, 0.3) 0%,
           rgba(31, 41, 55, 0.3) 60%
         ),
-        url("/img/tbm-s.png");
+        url("/img/tbm-s.webp");
     }
   }
 
