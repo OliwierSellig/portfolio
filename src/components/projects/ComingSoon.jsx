@@ -21,7 +21,7 @@ const Container = styled.li`
   color: var(--color-text-white);
   letter-spacing: var(--letter-spacing-default);
   background: transparent;
-  animation: ${fadeVertical(10, 0)} 1 s;
+  animation: ${fadeVertical(10, 0)} 0.7s;
 
   &::before,
   &::after {
@@ -40,8 +40,17 @@ const Container = styled.li`
         rgba(39, 47, 58, 0.6) 0%,
         rgba(31, 41, 55, 0.6) 60%
       ),
-      url("/img/soon.png");
+      url("/img/tbm-l.png");
     opacity: 1;
+
+    @media only screen and (max-width: 600px) {
+      background-image: linear-gradient(
+          180deg,
+          rgba(39, 47, 58, 0.6) 0%,
+          rgba(31, 41, 55, 0.6) 60%
+        ),
+        url("/img/tbm-s.png");
+    }
   }
 
   &::after {
@@ -50,8 +59,17 @@ const Container = styled.li`
         rgba(39, 47, 58, 0.3) 0%,
         rgba(31, 41, 55, 0.3) 60%
       ),
-      url("/img/soon.png");
+      url("/img/tbm-l.png");
     opacity: 0;
+
+    @media only screen and (max-width: 600px) {
+      background-image: linear-gradient(
+          180deg,
+          rgba(39, 47, 58, 0.3) 0%,
+          rgba(31, 41, 55, 0.3) 60%
+        ),
+        url("/img/tbm-s.png");
+    }
   }
 
   &:hover,

@@ -9,7 +9,7 @@ const Container = styled.li`
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-default);
-  background-image: ${(props) => `url("${props.$cover}")`};
+  background-image: ${(props) => `url("${props.$cover.md}")`};
   ${backgroundCenter}
   transition: all 0.3s ease-in;
   overflow: hidden;
@@ -94,6 +94,11 @@ const Container = styled.li`
 
   @media only screen and (max-width: 720px) {
     grid-column: 1/-1;
+  }
+
+  @media only screen and (max-width: 440px),
+    only screen and (max-width: 800px) and (max-resolution: 191dpi) {
+    background-image: ${(props) => `url("${props.$cover.sm}")`};
   }
 `;
 

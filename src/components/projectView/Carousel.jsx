@@ -18,12 +18,17 @@ const CarouselItem = styled.li`
   }
 `;
 
-function Carousel({ list = [], iterator }) {
+function Carousel({ list = [], iterator, full = false }) {
   return (
     <StyledCarousel>
       {list?.map((s, i) => (
         <CarouselItem key={i} $pos={i - iterator}>
-          <img src={s} alt={`Image ${i + 1}`} />
+          <img
+            srcSet={`${s.sm} 800w, ${s.md} 1400w, ${s.lg} 1800w`}
+            sizes={full ? "95vw" : "(max-width: 800px) 95vw, 560px"}
+            src={s.lg}
+            alt={`Image ${i + 1}`}
+          />
         </CarouselItem>
       ))}
     </StyledCarousel>

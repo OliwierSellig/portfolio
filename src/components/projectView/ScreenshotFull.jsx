@@ -37,7 +37,7 @@ function ScreenshotFull({ list = [] }) {
 
   return (
     <ScreenshotContainer>
-      <Carousel list={list} iterator={iterator} />
+      <Carousel list={list} iterator={iterator} full={true} />
       <NavButton
         prev={true}
         active={canGoPrev()}

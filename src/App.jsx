@@ -9,6 +9,7 @@ import PageNotFound from "./components/global/PageNotFound";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DataProvider } from "./contexts/DataContext";
+import ScrollToTop from "./services/scrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function App() {
           <NavigationProvider>
             <GlobalStyles />
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 <Route element={<AppLayout />}>
                   <Route path="/" element={<Main />} />

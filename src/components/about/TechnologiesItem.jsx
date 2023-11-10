@@ -56,7 +56,6 @@ const NameBox = styled.div`
 `;
 
 function TechnologiesItem({ item, number = 0 }) {
-  console.log(number);
   return (
     <Item tabIndex={0} $number={number}>
       <img src={item?.icon} alt={`${item?.name} Logo`} />
