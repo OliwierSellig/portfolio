@@ -7,7 +7,7 @@ const StyledCover = styled.div`
   grid-column: 1/2;
   aspect-ratio: 1/1;
   ${tile}
-  background-image: url("/img/my-photo.webp");
+  background-image: url("/img/photo-lg.webp");
   ${backgroundCenter}
   animation: ${fadeHorizontal(-15, 0)} 1s;
   overflow: hidden;
@@ -30,6 +30,10 @@ const StyledCover = styled.div`
 
   @media only screen and (max-width: 500px) {
     aspect-ratio: 4/3;
+  }
+
+  @media only screen and (max-width: 400px) {
+    background-image: url("/img/photo-sm.webp");
   }
 `;
 
