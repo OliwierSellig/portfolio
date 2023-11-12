@@ -10,6 +10,8 @@ function DataProvider({ children }) {
   const { isLoading: loadingTechnologies, technologies } = useTechnologies();
   const { isLoading: loadingContacts, contacts } = useContacts();
 
+  console.log(projects);
+
   const lodadedData =
     !loadingContacts && !loadingProjects && !loadingTechnologies;
 
@@ -17,6 +19,10 @@ function DataProvider({ children }) {
     projects?.length > 0 && technologies?.length > 0 && contacts?.length > 0;
 
   const readyToShow = lodadedData && dataExist;
+
+  function sortProjects() {
+    return projects.sort((a, b) => a.sortID - b.sortID);
+  }
 
   function filterProjects(list = []) {
     if (!dataExist) return;
@@ -52,6 +58,7 @@ function DataProvider({ children }) {
     <DataContext.Provider
       value={{
         projects,
+        sortProjects,
         filterProjects,
         contacts,
         filterContacts,
