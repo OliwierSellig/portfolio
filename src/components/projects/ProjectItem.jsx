@@ -172,7 +172,7 @@ const ProjectLink = styled(Link)`
 function ProjectItem({ project, number }) {
   const { filterTechnologies } = useData();
 
-  const techstack = filterTechnologies(project?.techstack);
+  const techstack = filterTechnologies(project?.techstack).slice(0, 4);
 
   return (
     <Container tabIndex={0} $cover={project?.images.at(0)} $number={number}>
