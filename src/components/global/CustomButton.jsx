@@ -50,7 +50,27 @@ function CustomButton({
   children,
   gap = 8,
   handleClick,
+  downloadName,
 }) {
+  if (isLink && downloadName)
+    return (
+      <StyledButton
+        as="a"
+        href={dest || "/"}
+        $gap={gap}
+        $padding={padding}
+        download={downloadName}
+        $theme={theme}
+        $themeFocus={themeFocus}
+        $fontSize={fontSize}
+        $fontWeight={fontWeight}
+        $color={color}
+        $iconSize={iconSize}
+      >
+        {children}
+      </StyledButton>
+    );
+
   if (isLink && !interSiteLink)
     return (
       <StyledButton

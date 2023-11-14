@@ -1,5 +1,6 @@
 import { tile } from "../../styles/Mixins";
 import { fadeHorizontal } from "../../styles/Animations";
+import resume from "../../assets/oliwiersellig-cv.pdf";
 import CustomButton from "../global/CustomButton";
 import styled from "styled-components";
 
@@ -81,6 +82,12 @@ const HighlightText = styled.span`
   font-size: 2.2rem;
 `;
 
+const CtaContainer = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;
+
 function Description() {
   return (
     <StyledDescription>
@@ -96,16 +103,29 @@ function Description() {
         designing and building websites. Feel free to take a look at my projects
         and reach out to connect!
       </AboutText>
-      <CustomButton
-        interSiteLink={true}
-        interSiteDest="contact"
-        theme="var(--color-blue-600)"
-        themeFocus="var(--color-blue-500)"
-        fontWeight={500}
-        padding={[1, 3.2, 1, 3.2]}
-      >
-        Hire me!
-      </CustomButton>
+      <CtaContainer>
+        <CustomButton
+          interSiteLink={true}
+          interSiteDest="contact"
+          theme="var(--color-blue-600)"
+          themeFocus="var(--color-blue-500)"
+          fontWeight={500}
+          padding={[1, 3.2, 1, 3.2]}
+        >
+          Let's talk
+        </CustomButton>
+        <CustomButton
+          isLink={true}
+          dest={resume}
+          downloadName="oliwier-sellig-resume"
+          theme="var(--color-blue-600)"
+          themeFocus="var(--color-blue-500)"
+          fontWeight={500}
+          padding={[1, 3.2, 1, 3.2]}
+        >
+          Get my resume
+        </CustomButton>
+      </CtaContainer>
     </StyledDescription>
   );
 }
