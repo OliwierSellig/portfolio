@@ -1,12 +1,19 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-const Grid = styled.section<CustomGridProps>`
+interface GridProps {
+  $columns: number;
+  $columnGap: number;
+  $rowGap: number;
+  $marginBottom: number;
+}
+
+const Grid = styled.section<GridProps>`
   display: grid;
-  grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
-  row-gap: ${(props) => `${props.rowGap}rem`};
-  column-gap: ${(props) => `${props.columnGap}rem`};
-  margin-bottom: ${(props) => `${props.marginBottom}rem`};
+  grid-template-columns: ${(props) => `repeat(${props.$columns}, 1fr)`};
+  row-gap: ${(props) => `${props.$rowGap}rem`};
+  column-gap: ${(props) => `${props.$columnGap}rem`};
+  margin-bottom: ${(props) => `${props.$marginBottom}rem`};
   list-style: none;
 `;
 
@@ -33,10 +40,10 @@ function CustomGrid({
 }: CustomGridProps) {
   return (
     <Grid
-      columns={columns}
-      marginBottom={marginBottom}
-      rowGap={rowGap}
-      columnGap={columnGap}
+      $columns={columns}
+      $marginBottom={marginBottom}
+      $rowGap={rowGap}
+      $columnGap={columnGap}
       id={id}
       ref={navigationRef}
       as={as}
