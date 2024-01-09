@@ -27,10 +27,10 @@ export const absoluteFull = css`
 `;
 
 export const selectedAnimation = (
-  animationType,
-  animationTime,
-  fadeCoordStart,
-  fadeCoordsEnd
+  animationType: "fadeIn" | "fadeHorizontal" | "fadeVertical",
+  animationTime: number,
+  fadeCoordStart: number,
+  fadeCoordsEnd: number
 ) =>
   css`
     animation: ${animationType === "fadeIn"

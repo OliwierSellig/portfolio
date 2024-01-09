@@ -146,10 +146,6 @@ table {
   border-collapse: collapse;
 }
 
-input,
-textarea {
-  -webkit-user-select: auto;
-}
 
 textarea {
   white-space: revert;
@@ -180,8 +176,7 @@ meter {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
-  -webkit-line-break: after-white-space;
-  -webkit-user-select: auto;
+
 }
 
 :where([draggable="true"]) {
