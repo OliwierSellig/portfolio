@@ -191,14 +191,17 @@ interface ProjectItemBoxProps {
 function ProjectItemBox({ project, number }: ProjectItemBoxProps) {
   const { filterTechnologies } = useData();
 
-  const techstack = filterTechnologies(project.techstack).slice(0, 4);
+  const techstack = filterTechnologies(project.techstack, { sort: true }).slice(
+    0,
+    4
+  );
 
   return (
     <Container tabIndex={0} $cover={project.images?.at(0)} $number={number}>
       <ProjectBox>
         <ProjectTitle>{project?.name}</ProjectTitle>
         <ProjectRow>
-          {techstack.slice(0, 4).map((tech, i) => (
+          {techstack.map((tech, i) => (
             <TechItem key={i}>
               <img src={tech?.icon} alt={tech?.name} />
             </TechItem>

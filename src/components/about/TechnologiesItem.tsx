@@ -52,8 +52,9 @@ const NameBox = styled.div`
   border-radius: var(--border-radius-default);
   background-image: var(--technology-background);
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--color-text-white);
+  text-align: center;
   letter-spacing: var(--letter-spacing-default);
   transition: all 0.3s;
   opacity: 0;

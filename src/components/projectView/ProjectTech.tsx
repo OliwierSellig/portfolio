@@ -61,7 +61,7 @@ interface ProjectTechProps {
 
 function ProjectTech({ techstack }: ProjectTechProps) {
   const { filterTechnologies } = useData();
-  const technologies = filterTechnologies(techstack);
+  const technologies = filterTechnologies(techstack, { sort: true });
 
   return (
     <>

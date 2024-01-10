@@ -13,7 +13,10 @@ interface ContextType {
   contacts: ContactItem[] | undefined | null;
   filterContacts: (list: string[]) => ContactItem[];
   technologies: TechnologyItem[] | undefined | null;
-  filterTechnologies: (list: string[]) => TechnologyItem[];
+  filterTechnologies: (
+    list: string[],
+    options: { sort?: boolean }
+  ) => TechnologyItem[];
   readyToShow: boolean;
 }
 
@@ -41,10 +44,17 @@ function DataProvider({ children }: { children: ReactNode }) {
     return projects.filter((project) => list.includes(project.slug));
   }
 
-  function filterTechnologies(list: string[]) {
+  function filterTechnologies(
+    list: string[],
+    options: { sort?: boolean } = { sort: false }
+  ) {
     if (!dataExist) return [];
 
-    return technologies.filter((tech) => list.includes(tech.slug));
+    return options.sort
+      ? technologies
+          .filter((tech) => list.includes(tech.slug))
+          .sort((a, b) => a.position - b.position)
+      : technologies.filter((tech) => list.includes(tech.slug));
   }
 
   function filterContacts(list: string[]) {

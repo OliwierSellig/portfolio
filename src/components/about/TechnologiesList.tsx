@@ -19,15 +19,24 @@ const StyledTechnologiesList = styled.ul`
 function TechnologiesList() {
   const { filterTechnologies } = useData();
 
-  const techstack = filterTechnologies([
-    "html",
-    "css",
-    "javascript",
-    "react",
-    "sass",
-    "git",
-    "github",
-  ]);
+  const techstack = filterTechnologies(
+    [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "typescript",
+      "next",
+      "tailwind",
+      "sass",
+      "styled-components",
+      "git",
+      "github",
+      "supabase",
+      "figma",
+    ],
+    { sort: true }
+  );
 
   return (
     <>
