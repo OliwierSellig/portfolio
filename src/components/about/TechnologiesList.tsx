@@ -11,7 +11,7 @@ const StyledTechnologiesList = styled.ul`
   justify-items: center;
   align-items: center;
   ${tile}
-  animation: ${fadeVertical(10, 0)} 1.4s;
+  animation: ${fadeVertical(5, 0)} 1s;
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -47,7 +47,7 @@ function TechnologiesList() {
           {techstack &&
             Array.isArray(techstack) &&
             techstack.map((tech, i) => (
-              <TechnologiesItem key={i} item={tech} />
+              <TechnologiesItem key={i} item={tech} number={i} />
             ))}
         </StyledTechnologiesList>
       )}
