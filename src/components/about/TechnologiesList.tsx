@@ -2,6 +2,7 @@ import { tile } from "../../styles/Mixins";
 import { useData } from "../../contexts/DataContext";
 import TechnologiesItem from "./TechnologiesItem";
 import styled from "styled-components";
+import { fadeVertical } from "../../styles/Animations";
 
 const StyledTechnologiesList = styled.ul`
   grid-column: 1/-1;
@@ -10,6 +11,7 @@ const StyledTechnologiesList = styled.ul`
   justify-items: center;
   align-items: center;
   ${tile}
+  animation: ${fadeVertical(10, 0)} 1.4s;
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -17,7 +19,7 @@ const StyledTechnologiesList = styled.ul`
 `;
 
 function TechnologiesList() {
-  const { filterTechnologies } = useData();
+  const { filterTechnologies, technologies } = useData();
 
   const techstack = filterTechnologies(
     [
@@ -40,17 +42,15 @@ function TechnologiesList() {
 
   return (
     <>
-      <StyledTechnologiesList>
-        {techstack &&
-          Array.isArray(techstack) &&
-          techstack.map((tech, i) => (
-            <TechnologiesItem
-              key={i}
-              item={tech}
-              number={i < 4 ? i + 1 : 7 - i}
-            />
-          ))}
-      </StyledTechnologiesList>
+      {technologies && (
+        <StyledTechnologiesList>
+          {techstack &&
+            Array.isArray(techstack) &&
+            techstack.map((tech, i) => (
+              <TechnologiesItem key={i} item={tech} />
+            ))}
+        </StyledTechnologiesList>
+      )}
     </>
   );
 }

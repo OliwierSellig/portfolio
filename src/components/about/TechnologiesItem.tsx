@@ -3,17 +3,11 @@ import { fadeVertical } from "../../styles/Animations";
 import styled from "styled-components";
 import { TechnologyItem } from "../../lib/types";
 
-interface ItemProps {
-  tabIndex: number;
-  $number: number;
-}
-
-const Item = styled.li<ItemProps>`
+const Item = styled.li`
   position: relative;
   ${flexCenter}
   width: 100%;
   padding: 1.2rem 2.4rem;
-  animation: ${fadeVertical(10, 0)} ${(props) => `${1 / (props.$number / 2)}s`};
 
   & img {
     width: 8rem;
@@ -64,12 +58,11 @@ const NameBox = styled.div`
 
 interface TechnologiesItemProps {
   item: TechnologyItem;
-  number: number;
 }
 
-function TechnologiesItem({ item, number = 0 }: TechnologiesItemProps) {
+function TechnologiesItem({ item }: TechnologiesItemProps) {
   return (
-    <Item tabIndex={0} $number={number}>
+    <Item tabIndex={0}>
       <img src={item?.icon} alt={`${item?.name} Logo`} />
       <NameBox>{item?.name}</NameBox>
     </Item>
