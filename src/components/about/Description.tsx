@@ -1,6 +1,6 @@
 import { tile } from "../../styles/Mixins";
 import { fadeHorizontal } from "../../styles/Animations";
-import resume from "../../assets/oliwiersellig-cv.pdf";
+import resume from "../../assets/oliwiersellig_resume.pdf";
 import CustomButton from "../global/CustomButton";
 import styled from "styled-components";
 
