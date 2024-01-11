@@ -104,11 +104,11 @@ function Footer() {
     <StyledFooter>
       <FooterCopy>Oliwier Sellig 2024&copy;</FooterCopy>
       <CopyToClipboard
-        text="oliwierandrzej.sellig@gmail.com"
+        text="oliwiersellig.business@gmail.com"
         onCopy={() => setCopied(true)}
       >
         <FooterMail>
-          <MailText>oliwierandrzej.sellig@gmail.com</MailText>
+          <MailText>oliwiersellig.business@gmail.com</MailText>
           <MailIcon
             $copied={copied}
             $darkMode={inDarkMode}
